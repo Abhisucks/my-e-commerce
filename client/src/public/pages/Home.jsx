@@ -9,6 +9,7 @@ const Home = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     return <>
+
         {/* <!-- Start Banner Hero --> */}
         <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators text-decoration-none">
@@ -82,6 +83,7 @@ const Home = () => {
             </a>
         </div>
         {/* <!-- End Banner Hero --> */}
+
 
 
         {/* <!-- Start Categories of The Month --> */}

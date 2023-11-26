@@ -24,7 +24,7 @@ const Cart = () => {
                 <div class="col-md-8 mt-3 mt-lg-0">
                     {
                         cart && cart.map((item, i) =>
-                            <div class="row mt-1">
+                            <div class="row mt-1 mb-2">
                                 <div class="col-lg-3 col-3 img-fluid">
                                     <img width="100%"
                                         src={`${item.img}`}
@@ -98,7 +98,7 @@ const Cart = () => {
                             </div>
                         </div>
                     </div>
-                    <button type="button" onClick={e => handlepay()} className="btn btn-outline-secondary p-2 mt-2 text-light fw-bold w-100" style={{ background: btnColor }} ><i className="bi bi-bag-heart-fill mx-2"></i>  PLACE ORDER </button>
+                    <button type="button" onClick={e => handlepay()} className="btn btn-outline-secondary p-2 mt-2 text-light fw-bold w-100 mb-4" style={{ background: btnColor }} ><i className="bi bi-bag-heart-fill mx-2"></i>  PLACE ORDER </button>
                 </div>
 
             </div>

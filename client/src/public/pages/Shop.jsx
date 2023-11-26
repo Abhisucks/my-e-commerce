@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProduct } from '../../redux/actions/adminActions'
 import { Navigate, useNavigate } from 'react-router-dom'
@@ -6,8 +6,9 @@ import Footer from '../components/Footer'
 
 const Shop = () => {
     const navigate = useNavigate()
-
     const dispatch = useDispatch()
+
+    const [productcate, setProductCate] = useState("all products")
     const { allProducts } = useSelector(state => state.admin)
     useEffect(() => {
         dispatch(getAllProduct())
@@ -18,11 +19,32 @@ const Shop = () => {
         navigate("/ShopSingle", { state: { item: item } })
     }
 
+    const result = productcate === "all products"
+        ? allProducts
+        : allProducts.filter(item => item.category === productcate);
+
+    // console.log(result);
+    console.log(productcate);
+
+
     return <>
         <div className="container">
+            <div className='w-25 m-3'>
+                <label htmlFor="" >Categerogy</label>
+                <select value={productcate}
+                    className="form-select  mt-2 mb-3" onChange={e => setProductCate(e.target.value)}>
+                    <option value="all products">All Products</option>
+                    <option value="fruits">Fruits</option>
+                    <option value="vegitable">Vegitable</option>
+                    <option value="FreshProduce">Fresh Produce</option>
+                    <option value="Dairy and Eggs">Dairy and Eggs</option>
+                    <option value="Food">Food</option>
+                </select>
+            </div>
+
             <div className="row m-3">
                 {
-                    allProducts && allProducts.map((item, i) => <div class="col-md-4" onClick={e => addcart(item)} key={item._id}>
+                    result && result.map((item, i) => <div class="col-md-4" onClick={e => addcart(item)} key={item._id}>
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
                                 <img class="card-img rounded-0 img-fluid" src={item.img} />
@@ -36,16 +58,7 @@ const Shop = () => {
                             </div>
                             <div class="card-body">
                                 <h6 class="h3 text-decoration-none">{item.title}</h6>
-                                {/* <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>M/L/X/XL</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul> */}
+
                                 <ul class="list-unstyled d-flex justify-content-center mb-1">
                                     <li>
                                         <i class="text-warning fa fa-star"></i>
