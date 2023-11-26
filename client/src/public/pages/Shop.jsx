@@ -9,6 +9,7 @@ const Shop = () => {
     const dispatch = useDispatch()
 
     const [productcate, setProductCate] = useState("all products")
+    const [priceRange, setPriceRange] = useState("all prices")
     const { allProducts } = useSelector(state => state.admin)
     useEffect(() => {
         dispatch(getAllProduct())
@@ -19,9 +20,28 @@ const Shop = () => {
         navigate("/ShopSingle", { state: { item: item } })
     }
 
-    const result = productcate === "all products"
-        ? allProducts
-        : allProducts.filter(item => item.category === productcate);
+    const filterByPrice = (item) => {
+        switch (priceRange) {
+            case "500":
+                return item.price <= 500;
+            case "1000":
+                return item.price <= 1000;
+            case "2000":
+                return item.price >= 2000;
+            default:
+                return true; // "all prices" or any other case
+        }
+    };
+
+    const result = allProducts && allProducts.filter(
+        (item) =>
+            (productcate === "all products" || item.category === productcate) &&
+            filterByPrice(item)
+    );
+
+    // const result = productcate === "all products"
+    //     ? allProducts
+    //     : allProducts.filter(item => item.category === productcate);
 
     // console.log(result);
     console.log(productcate);
@@ -29,17 +49,30 @@ const Shop = () => {
 
     return <>
         <div className="container">
-            <div className='w-25 m-3'>
-                <label htmlFor="" >Categerogy</label>
-                <select value={productcate}
-                    className="form-select  mt-2 mb-3" onChange={e => setProductCate(e.target.value)}>
-                    <option value="all products">All Products</option>
-                    <option value="fruits">Fruits</option>
-                    <option value="vegitable">Vegitable</option>
-                    <option value="FreshProduce">Fresh Produce</option>
-                    <option value="Dairy and Eggs">Dairy and Eggs</option>
-                    <option value="Food">Food</option>
-                </select>
+            <div className='d-flex'>
+                <div className='w-25 m-3'>
+                    <label htmlFor="" >Categerogy</label>
+                    <select value={productcate}
+                        className="form-select  mt-2 mb-3" onChange={e => setProductCate(e.target.value)}>
+                        <option value="all products">All Products</option>
+                        <option value="fruits">Fruits</option>
+                        <option value="vegitable">Vegitable</option>
+                        <option value="FreshProduce">Fresh Produce</option>
+                        <option value="Dairy and Eggs">Dairy and Eggs</option>
+                        <option value="Food">Food</option>
+                    </select>
+                </div>
+                <div className='w-25 m-3'>
+                    <label htmlFor="" >Price Range</label>
+                    <select value={priceRange}
+                        className="form-select  mt-2 mb-3" onChange={e => setPriceRange(e.target.value)}>
+                        <option value="all prices">All Prices</option>
+                        <option value="500">Under ₹500</option>
+                        <option value="1000">Under ₹1000</option>
+                        <option value="2000">Over ₹2000</option>
+
+                    </select>
+                </div>
             </div>
 
             <div className="row m-3">
