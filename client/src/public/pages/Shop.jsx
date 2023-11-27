@@ -39,12 +39,13 @@ const Shop = () => {
             filterByPrice(item)
     );
 
+
     // const result = productcate === "all products"
     //     ? allProducts
     //     : allProducts.filter(item => item.category === productcate);
 
     // console.log(result);
-    console.log(productcate);
+    // console.log(productcate);
 
 
     return <>
