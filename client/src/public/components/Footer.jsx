@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return <>
@@ -28,13 +29,13 @@ const Footer = () => {
                     <div class="col-md-4 pt-5">
                         <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
                         <ul class="list-unstyled text-light footer-link-list">
-                            <li><a class="text-decoration-none" href="#">Luxury</a></li>
-                            <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
-                            <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
-                            <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
-                            <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
-                            <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
-                            <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
+                            <li><Link to={"/shop"} class="text-decoration-none">Luxury</Link></li>
+                            <li><Link to={"/shop"} class="text-decoration-none">Sport Wear</Link></li>
+                            <li><Link to={"/shop"} class="text-decoration-none">Men's Shoes</Link></li>
+                            <li><Link to={"/shop"} class="text-decoration-none">Women's Shoes</Link></li>
+                            <li><Link to={"/shop"} class="text-decoration-none">Popular Dress</Link></li>
+                            <li><Link to={"/shop"} class="text-decoration-none">Gym Accessories</Link></li>
+                            <li><Link to={"/shop"} class="text-decoration-none">Sport Shoes</Link></li>
                         </ul>
                     </div>
 
