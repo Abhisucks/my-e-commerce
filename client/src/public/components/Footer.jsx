@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     return <>
         {/* <!-- Start Footer --> */}
         <footer class="bg-dark" id="tempaltemo_footer">
@@ -29,13 +32,13 @@ const Footer = () => {
                     <div class="col-md-4 pt-5">
                         <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
                         <ul class="list-unstyled text-light footer-link-list">
-                            <li><Link to={"/shop"} class="text-decoration-none">Luxury</Link></li>
-                            <li><Link to={"/shop"} class="text-decoration-none">Sport Wear</Link></li>
-                            <li><Link to={"/shop"} class="text-decoration-none">Men's Shoes</Link></li>
-                            <li><Link to={"/shop"} class="text-decoration-none">Women's Shoes</Link></li>
-                            <li><Link to={"/shop"} class="text-decoration-none">Popular Dress</Link></li>
-                            <li><Link to={"/shop"} class="text-decoration-none">Gym Accessories</Link></li>
-                            <li><Link to={"/shop"} class="text-decoration-none">Sport Shoes</Link></li>
+                            <li><Link to={"/shop"} onClick={scrollToTop} class="text-decoration-none">Luxury</Link></li>
+                            <li><Link to={"/shop"} onClick={scrollToTop} class="text-decoration-none">Sport Wear</Link></li>
+                            <li><Link to={"/shop"} onClick={scrollToTop} class="text-decoration-none">Men's Shoes</Link></li>
+                            <li><Link to={"/shop"} onClick={scrollToTop} class="text-decoration-none">Women's Shoes</Link></li>
+                            <li><Link to={"/shop"} onClick={scrollToTop} class="text-decoration-none">Popular Dress</Link></li>
+                            <li><Link to={"/shop"} onClick={scrollToTop} class="text-decoration-none">Gym Accessories</Link></li>
+                            <li><Link to={"/shop"} onClick={scrollToTop} class="text-decoration-none">Sport Shoes</Link></li>
                         </ul>
                     </div>
 
