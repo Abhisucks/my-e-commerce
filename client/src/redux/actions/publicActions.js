@@ -41,12 +41,12 @@ export const logoutUser = createAsyncThunk("user/logout", async (userData, { rej
 })
 
 
-export const CheckOutway = createAsyncThunk("checkout", async (check, { rejectWithValue, getState }) => {
+export const CheckOutway = createAsyncThunk("checkout", async (amount, { rejectWithValue, getState }) => {
     try {
         const { data: { key } } = await api.get("/user/paymentkey")
-        const { data: { order } } = await api.post("/user/checkout", check)
+        const { data: { order } } = await api.post("/user/checkout", { amount })
 
-
+        console.log(amount);
 
         const options = {
             key: key,
@@ -69,8 +69,8 @@ export const CheckOutway = createAsyncThunk("checkout", async (check, { rejectWi
                 color: "#3399cc"
             }
         };
-        const rezer = new window.Razorpay(options);
-        rezer.open();
+        const razor = new window.Razorpay(options);
+        razor.open();
         return true
 
     } catch (error) {

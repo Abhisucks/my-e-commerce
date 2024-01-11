@@ -16,16 +16,7 @@ const ShopSingle = () => {
         // console.log(item);
         if (login) {
 
-            dispatch(addToCart({ ...item, userId: login._id }))
-            toast.success("Added To Cart", { autoClose: 300 })
-        }
-        // if (item) {
-        //     console.log("already");
-        //     console.log(item._id);
-        // } 
-        else if (item) {
-            // console.log("already exist he bhawa");
-            dispatch(addToCart(item))
+            dispatch(addToCart({ ...item, userId: login.id }))
             toast.success("Added To Cart", { autoClose: 300 })
         }
 

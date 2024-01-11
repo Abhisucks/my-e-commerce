@@ -14,6 +14,9 @@ app.use(cors({
 }))
 
 app.use(express.json()) //body parser
+app.use(express.urlencoded({ extended: true }));
+
+
 app.use("/api/user", require("./routes/userRoutes"))
 app.use("/api/admin", require("./routes/adminRoutes"))
 app.use("/api/cart", require("./routes/productsRoutes"))
@@ -27,5 +30,3 @@ mongoose.connection.on("error", (err) => {
     console.log("unable to connect to database", err)
 })
 
-// RAZORPAY_KEY=rzp_test_wFu94FLyTEB41s
-// RAZORPAY_SECRET_KEY=bYwvKfdOJmb5Kr9ptr0

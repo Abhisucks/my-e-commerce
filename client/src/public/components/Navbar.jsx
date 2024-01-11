@@ -68,10 +68,10 @@ const Navbar = () => {
                                 <Link to={"/"} class="nav-link" >Home</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to={"/about"} class="nav-link" >About</Link>
+                                <Link to={"/shop"} class="nav-link" >Shop</Link>
                             </li>
                             <li class="nav-item">
-                                <Link to={"/shop"} class="nav-link" >Shop</Link>
+                                <Link to={"/about"} class="nav-link" >About</Link>
                             </li>
                             <li class="nav-item">
                                 <Link to={"/contact"} class="nav-link" >Contact</Link>

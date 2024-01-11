@@ -1,16 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { CheckOutway, getAllUsers, loginUser, logoutUser, registerUser } from "../actions/publicActions";
 
+
+
 const publicSlice = createSlice({
     name: "public",
     initialState: {
         login: JSON.parse(localStorage.getItem("loginInfoo")),
         // cart: (
         //     JSON.parse(localStorage.getItem("cart")) || []
-        // ).filter((item) => item.userId === (JSON.parse(localStorage.getItem("loginInfoo"))._id || null))
-        //     .map(({ _id, name, qty, price }) => ({ _id, name, qty, price })),
+        // ).filter((item) => item.userId === (JSON.parse(localStorage.getItem("loginInfoo")).id)),
+
         cart: JSON.parse(localStorage.getItem("cart")) || [],
         total: JSON.parse(localStorage.getItem("total"))
+
+
+        // Add a "carts" property to store user-specific cart information
+
+
 
     },
     reducers: {
@@ -45,6 +52,8 @@ const publicSlice = createSlice({
             localStorage.setItem("cart", JSON.stringify(state.cart));
             localStorage.setItem("total", JSON.stringify(state.total));
         },
+
+
 
 
         deleteCartItem: (state, { payload }) => {

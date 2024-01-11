@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const Razorpay = require("razorpay")
 const crypto = require("crypto")
+const Payment = require("../models/Payment")
 
 
 
@@ -100,82 +101,91 @@ exports.logoutUser = asyncHandler(async (req, res) => {
     })
 })
 
+
 exports.checkout = async (req, res) => {
     try {
         const instance = new Razorpay({
-            key_id: process.env.REZORPAY_KEY,
-            key_secret: process.env.REZORPAY_SECRET_KEY,
+            key_id: process.env.RAZORPAY_API_KEY,
+            key_secret: process.env.RAZORPAY_APT_SECRET,
         });
-
         const options = {
-
-            amount: Number(req.body.total * 100),
-            // amount: req.body.total,
+            amount: Number(req.body.amount * 100),
             currency: "INR",
-        }
-        // console.log(options.amount)
-
+        };
         const order = await instance.orders.create(options);
 
-        // console.log(order)
-        res.json({
+        res.status(200).json({
             success: true,
-            order
-        })
+            order,
+        });
     } catch (error) {
-        res.status(400).json({
-            message: "Unble payment" + error
-        })
+        console.log(error.message);
     }
-}
+};
 
-
-exports.paymentVerfication = async (req, res) => {
+exports.paymentVerification = async (req, res) => {
     try {
+        const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
+            req.body;
 
-        const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body
-        let body = razorpay_order_id + "|" + razorpay_payment_id
-        // const key = `${razorpay_order_id}|${razorpay_payment_id}`
+        console.log(razorpay_order_id, razorpay_payment_id, razorpay_signature);
+
+        const body = razorpay_order_id + "|" + razorpay_payment_id;
+
         const expectedSignature = crypto
-            .createHmac("sha256", process.env.REZORPAY_SECRET_KEY)
+            .createHmac("sha256", process.env.RAZORPAY_APT_SECRET)
             .update(body.toString())
-            .digest("hex")
+            .digest("hex");
 
-        const isAuthentic = expectedSignature === razorpay_signature
+        const isAuthentic = expectedSignature === razorpay_signature;
+
         if (isAuthentic) {
-            res.redirect(`http://localhost:5000/paymentsuccess?reference=${razorpay_payment_id}`)
+            // Database comes here
+
+            await Payment.create({
+                razorpay_order_id,
+                razorpay_payment_id,
+                razorpay_signature,
+            });
+
+            res.redirect(
+                `http://localhost:5173/paymentsuccess?reference=${razorpay_payment_id}`
+            );
         } else {
             res.status(400).json({
-                success: false
-            })
+                success: false,
+            });
         }
-
-        // res.json({
-        //     success: true,
-        //     razorpay_payment_id
-
-        // })
     } catch (error) {
-        res.status(400).json({
-            message: "Unble paymentVerifcation" + error
-        })
+        console.log(error.message)
     }
-}
+};
 
 
 exports.getKey = async (req, res) => {
     try {
-        //     app.get("/user/getkey", (req, res) =>
-        // res.status(200).json({ key: process.env.REZORPAY_KEY }))
-        // const result = await User.find()
         res.json({
-            key: process.env.REZORPAY_KEY,
-            // message: "All Users get Successfully",
-
+            key: process.env.RAZORPAY_API_KEY,
         })
     } catch (error) {
         res.status(400).json({
             message: "Unble to get Keyid" + error
+        })
+    }
+
+}
+
+exports.getpaymentVeri = async (req, res) => {
+
+    try {
+        const result = await Payment.find()
+
+        res.json({
+            message: "payment Fetch Succssefully", result
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: "Unble to get " + error
         })
     }
 }
