@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { decrementCartItem, deleteCartItem, incrementCartItem } from '../../redux/slice/publicSlice'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { CheckOutway } from '../../redux/actions/publicActions'
 import api from '../../redux/api'
 
@@ -61,55 +61,65 @@ const Cart = () => {
             <div class="row">
                 <div class="col-md-8 mt-3 mt-lg-0">
                     {
-                        cart && cart.map((item, i) =>
-                            <div class="row mt-1 mb-2">
-                                <div class="col-lg-3 col-3 img-fluid">
-                                    <img width="100%"
-                                        src={`${item.img}`}
-                                        alt="" />
-                                </div>
-                                <div class="col-lg-3 mt-3 col-9 position-relative">
-                                    <h5>{item.title}</h5>
-                                    <p>₹{item.price}</p>
+                        cart.length > 0
+                            ? <>
+                                {
+                                    cart && cart.map((item, i) =>
+                                        <div class="row mt-1 mb-2">
+                                            <div class="col-lg-3 col-3 img-fluid">
+                                                <img width="100%"
+                                                    src={`${item.img}`}
+                                                    alt="" />
+                                            </div>
+                                            <div class="col-lg-3 mt-3 col-9 position-relative">
+                                                <h5>{item.title}</h5>
+                                                <p>₹{item.price}</p>
 
-                                    <span class="ps-lg-5 position-absolute top-0 end-0 pe-4 d-lg-none"><i
-                                        class="bi bi-x-lg"></i></span>
+                                                <span class="ps-lg-5 position-absolute top-0 end-0 pe-4 d-lg-none"><i
+                                                    class="bi bi-x-lg"></i></span>
 
-                                </div>
-                                <div class="col-lg-3 mt-3 offset-3 col-3 offset-lg-0">
+                                            </div>
+                                            <div class="col-lg-3 mt-3 offset-3 col-3 offset-lg-0">
 
-                                    <div class="btn-group">
-                                        <button
-                                            type="button"
-                                            class="btn btn-secondary"
-                                            onClick={() => dispatch(decrementCartItem(i))}
-                                        >
-                                            <i class="bi bi-dash"></i>
-                                        </button>
+                                                <div class="btn-group">
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-secondary"
+                                                        onClick={() => dispatch(decrementCartItem(i))}
+                                                    >
+                                                        <i class="bi bi-dash"></i>
+                                                    </button>
 
-                                        <button type="button" class="btn btn-outline-secondary">{item.qty}</button>
+                                                    <button type="button" class="btn btn-outline-secondary">{item.qty}</button>
 
-                                        <button
-                                            type="button"
-                                            class="btn btn-secondary"
-                                            onClick={() => dispatch(incrementCartItem(i))}
-                                        >
-                                            <i class="bi bi-plus"></i>
-                                        </button>
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-secondary"
+                                                        onClick={() => dispatch(incrementCartItem(i))}
+                                                    >
+                                                        <i class="bi bi-plus"></i>
+                                                    </button>
 
-                                    </div>
+                                                </div>
 
-                                </div>
-                                <div class="col-lg-3 mt-3 col-6 ms-auto ps-5 ps-lg-0">
-                                    <span>₹{item.price * item.qty}</span>
-                                    <span class="ps-lg-5 d-none d-lg-inline"><i onClick={() => dispatch(deleteCartItem(i))} class="bi bi-x-lg"></i></span>
-                                </div>
+                                            </div>
+                                            <div class="col-lg-3 mt-3 col-6 ms-auto ps-5 ps-lg-0">
+                                                <span>₹{item.price * item.qty}</span>
+                                                <span class="ps-lg-5 d-none d-lg-inline"><i onClick={() => dispatch(deleteCartItem(i))} class="bi bi-x-lg"></i></span>
+                                            </div>
 
-                                {/* <hr /> */}
+                                        </div>
 
-                            </div>
+                                    )
+                                }
 
-                        )
+                            </>
+                            : <>
+                                <h4 className='m-5 mb-0'>
+                                    Cart is Empty
+                                </h4>
+                                <Link className='m-5 mt-0' to={"/shop"}>Shop Now</Link>
+                            </>
                     }
 
                 </div>
@@ -136,7 +146,12 @@ const Cart = () => {
                             </div>
                         </div>
                     </div>
-                    <button type="button" onClick={e => handlepay()} className="btn btn-outline-secondary p-2 mt-2 text-light fw-bold w-100 mb-4" style={{ background: btnColor }} ><i className="bi bi-bag-heart-fill mx-2"></i>  PLACE ORDER </button>
+                    {
+                        cart.length > 0 && <button type="button"
+                            onClick={e => handlepay()} className="btn btn-outline-secondary p-2 mt-2 text-light fw-bold w-100 mb-4"
+                            style={{ background: btnColor }} ><i className="bi bi-bag-heart-fill mx-2"></i>  PLACE ORDER
+                        </button>
+                    }
                 </div>
 
             </div>

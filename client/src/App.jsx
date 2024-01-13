@@ -18,6 +18,7 @@ import ShopSingle from './public/pages/ShopSingle'
 import Cart from './public/components/Cart'
 import PaymentSuccess from './public/pages/PaymentSuccess'
 import Justforfun from './public/components/Justforfun'
+import OrderPlaced from './public/components/orderPlaced'
 
 const App = () => {
   return <>
@@ -34,6 +35,7 @@ const App = () => {
           <Route path='cart' element={<Cart />} />
           {/* <Route path='cart' element={<Justforfun />} /> */}
           <Route path='paymentsuccess' element={<PaymentSuccess />} />
+          <Route path='orderplaced' element={<OrderPlaced />} />
         </Route>
 
         <Route path='/admin' element={<AdminProtected compo={<AdminLayout />} />}>

@@ -53,7 +53,12 @@ const publicSlice = createSlice({
             localStorage.setItem("total", JSON.stringify(state.total));
         },
 
-
+        clearCart: (state) => {
+            state.cart = [];
+            state.total = 0;
+            localStorage.removeItem("cart");
+            localStorage.removeItem("total");
+        },
 
 
         deleteCartItem: (state, { payload }) => {
@@ -145,5 +150,5 @@ const publicSlice = createSlice({
         })
 })
 
-export const { invalidate, addToCart, incrementCartItem, decrementCartItem, deleteCartItem } = publicSlice.actions
+export const { invalidate, addToCart, incrementCartItem, decrementCartItem, deleteCartItem, clearCart } = publicSlice.actions
 export default publicSlice.reducer

@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/user", require("./routes/userRoutes"))
 app.use("/api/admin", require("./routes/adminRoutes"))
 app.use("/api/cart", require("./routes/productsRoutes"))
+app.use("/api/orders", require("./routes/orderRoutes"))
 
 mongoose.connection.once("open", () => {
     console.log("Database Conected");
