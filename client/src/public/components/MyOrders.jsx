@@ -13,8 +13,6 @@ const MyOrders = () => {
         dispatch(getOneUserOrders(login.id))
     }, [])
 
-    console.log(login.id);
-    console.log(yourOrders);
 
     const content = <>
         <table class="table mt-5 table-dark table-striped table-hover">
