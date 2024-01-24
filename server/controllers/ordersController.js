@@ -15,6 +15,14 @@ exports.getUserOrders = asyncHandler(async (req, res) => {
     })
 })
 
+exports.getOneUserOrders = asyncHandler(async (req, res) => {
+    const { userId } = req.params
+    const result = await BuyProduct.find({ userId: userId })
+    res.json({
+        message: "Fetch one User orders successfully", result
+    })
+})
+
 exports.destroyUserOders = asyncHandler(async (req, res) => {
     const result = await BuyProduct.deleteMany()
 

@@ -34,3 +34,4 @@ export const editProduct = createAsyncThunk("admin/edit-pro", async (product, { 
         return rejectWithValue(error.response.data.message || error.message || "something went wrong")
     }
 })
+

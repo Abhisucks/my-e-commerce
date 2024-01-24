@@ -1,58 +1,59 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllOrders } from '../../redux/actions/orderActions'
+import { getOneUserOrders } from '../../redux/actions/orderActions'
 
-const HomeAdmin = () => {
-    const { orders } = useSelector(state => state.order)
+const MyOrders = () => {
+    const { login, error } = useSelector(state => state.public)
+    const { yourOrders } = useSelector(state => state.order)
+
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getAllOrders())
+        dispatch(getOneUserOrders(login.id))
     }, [])
 
-    if (orders) {
-        console.log(JSON.stringify(orders));
-    }
-
+    console.log(login.id);
+    console.log(yourOrders);
 
     const content = <>
         <table class="table mt-5 table-dark table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">img</th>
                     <th scope="col">name</th>
                     <th scope="col">price</th>
                     <th scope="col">qty</th>
-                    <th scope="col">userId</th>
                     <th scope="col">PaymentId</th>
                 </tr>
             </thead>
             <tbody>
                 {
-                    orders && orders.map((item, i) => <tr key={item._id}>
+                    yourOrders && yourOrders.map((item, i) => <tr key={item._id}>
                         <td>{i + 1}</td>
+                        <td>
+                            <img src={`${item.img}`} width={100} alt="" className='img-fluid' />
+                        </td>
                         <td>
                             {item.title}
                         </td>
                         <td>{item.price}</td>
                         <td>{item.qty}</td>
-                        <td>{item.userId}</td>
+
                         <td>{item.paymentId}</td>
-                        {/* <td>
-     <button type="button" class="btn btn-outline-danger mx-2" >Delete</button>
- </td> */}
+
                     </tr>)
                 }
             </tbody>
         </table>
     </>
     return <>
-        <div className="container mt-3">
-            <h5 className='text-center'>All Orders</h5>
+        <div className="container mt-5">
+            <h5 className='text-center'>Your Orders</h5>
             {content}
-
         </div>
     </>
 }
 
-export default HomeAdmin
+export default MyOrders

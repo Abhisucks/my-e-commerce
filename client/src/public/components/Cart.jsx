@@ -24,37 +24,6 @@ const Cart = () => {
         }
     }
 
-    // const checkout2 = async (amount) => {
-    //     const { data: { key } } = await api.get("/user/paymentkey")
-    //     const { data: { order } } = await api.post("/user/checkout", { amount })
-
-
-
-    //     const options = {
-    //         key: key,
-    //         amount: order.amount,
-    //         currency: "INR",
-    //         name: "My E-Commarce",
-    //         description: "Test Transaction",
-    //         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAHXPluq6GtTRPDIHRv5kJPy86uFjp5sO7hg&usqp=CAU",
-    //         order_id: order.id,
-    //         callback_url: "http://localhost:5000/api/user/paymentVeri",
-    //         prefill: {
-    //             name: "Abhi Sucks",
-    //             email: "abhi.sucks@example.com",
-    //             contact: "8459990245"
-    //         },
-    //         notes: {
-    //             "address": "Razorpay Corporate Office"
-    //         },
-    //         theme: {
-    //             color: "#3399cc"
-    //         }
-    //     };
-    //     const razor = new window.Razorpay(options);
-    //     razor.open();
-    // }
-
 
     return <>
         <div class="container mt-3">

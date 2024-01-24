@@ -28,6 +28,10 @@ const buySchema = mongoose.Schema({
     userId: {
         type: mongoose.Types.ObjectId,
 
+    },
+    paymentId: {
+        type: String,
+
     }
 })
 

@@ -19,6 +19,7 @@ import Cart from './public/components/Cart'
 import PaymentSuccess from './public/pages/PaymentSuccess'
 import Justforfun from './public/components/Justforfun'
 import OrderPlaced from './public/components/orderPlaced'
+import MyOrders from './public/components/MyOrders'
 
 const App = () => {
   return <>
@@ -36,6 +37,7 @@ const App = () => {
           {/* <Route path='cart' element={<Justforfun />} /> */}
           <Route path='paymentsuccess' element={<PaymentSuccess />} />
           <Route path='orderplaced' element={<OrderPlaced />} />
+          <Route path='myorders' element={<MyOrders />} />
         </Route>
 
         <Route path='/admin' element={<AdminProtected compo={<AdminLayout />} />}>

@@ -9,3 +9,23 @@ export const addUserOrders = createAsyncThunk("order/added", async (orderData, {
         return rejectWithValue(error.response.data.message || error.message || "something went wrong")
     }
 })
+
+export const getAllOrders = createAsyncThunk("order/get", async (orderData, { rejectWithValue, getState }) => {
+    try {
+        const { data } = await api.get("orders/")
+        return data.result
+    } catch (error) {
+        return rejectWithValue(error.response.data.message || error.message || "something went wrong")
+    }
+})
+
+export const getOneUserOrders = createAsyncThunk("order/get/user", async (userOrderId, { rejectWithValue, getState }) => {
+    try {
+        const { data } = await api.get(`orders/yourorders/${userOrderId}`)
+        console.log(data);
+        return data.result
+    } catch (error) {
+        return rejectWithValue(error.response.data.message || error.message || "something went wrong")
+    }
+})
+

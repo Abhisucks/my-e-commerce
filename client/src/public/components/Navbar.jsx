@@ -107,6 +107,11 @@ const Navbar = () => {
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
+                                                <Link to={"/myorders"} className='text-decoration-none'>
+                                                    <button class="dropdown-item">My Orders</button>
+                                                </Link>
+                                            </li>
+                                            <li>
                                                 <button onClick={handleLogout} class="dropdown-item">Logout</button>
                                             </li>
                                         </ul>
