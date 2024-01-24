@@ -49,7 +49,9 @@ const MyOrders = () => {
     return <>
         <div className="container mt-5">
             <h5 className='text-center'>Your Orders</h5>
-            {content}
+            <div className='table-responsive'>
+                {content}
+            </div>
         </div>
     </>
 }

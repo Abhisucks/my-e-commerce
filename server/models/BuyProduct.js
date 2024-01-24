@@ -27,12 +27,10 @@ const buySchema = mongoose.Schema({
     },
     userId: {
         type: mongoose.Types.ObjectId,
-
     },
     paymentId: {
         type: String,
-
     }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model("buyproduct", buySchema)
