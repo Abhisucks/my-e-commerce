@@ -55,7 +55,7 @@ const MyOrders = () => {
                         <div className="col-md-2">
                             <img
                                 src={`${item.img}`}
-                                className="img-fluid"
+                                className="img-fluid p-2 p-sm-1"
                                 alt="Photo"
                             />
                         </div>
