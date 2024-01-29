@@ -43,8 +43,10 @@ const MyOrders = () => {
                                 </div>
                                 <div className="col-md-4 text-center d-flex justify-content-center align-items-center">
                                     {/* <p className=" mb-0 small">Payment_Id :- {item.paymentId}</p> */}
-                                    <p className=" mb-0 small">{orderDateInIndianTimezone}</p>
-                                    {/* <p className=" mb-0 small">{orderDate.toLocaleString('en-IN')}</p> */}
+                                    <p className=" mb-0 small">
+                                        <span>Order Date :</span> <br />
+                                        <span>{orderDateInIndianTimezone}</span>
+                                    </p>
 
                                 </div>
                             </div>
