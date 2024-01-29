@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOneUserOrders } from '../../redux/actions/orderActions'
+import { Link } from "react-router-dom"
 
 const MyOrders = () => {
     const { login, error } = useSelector(state => state.public)
@@ -84,7 +85,16 @@ const MyOrders = () => {
         <div className="container mt-5">
             <h5 className='text-center mb-3'>Your Orders</h5>
             {
-                orderCard
+                yourOrders && yourOrders.length > 0
+                    ? <>
+                        {
+                            orderCard
+                        }
+                    </>
+                    : <>
+                        <p>You have no orders</p>
+                        <Link to={"/shop"}>ShopNow</Link>
+                    </>
             }
 
         </div>
