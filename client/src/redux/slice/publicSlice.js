@@ -66,7 +66,6 @@ const publicSlice = createSlice({
             state.total = state.cart.reduce((total, item) => total + (item.qty * item.price), 0)
             localStorage.setItem("cart", JSON.stringify(state.cart))
             localStorage.setItem("total", JSON.stringify(state.total));
-
         },
 
 

@@ -30,6 +30,10 @@ const buySchema = mongoose.Schema({
     },
     paymentId: {
         type: String,
+    },
+    orderDate: {
+        type: Date,
+        default: Date.now,
     }
 }, { timestamps: true })
 
