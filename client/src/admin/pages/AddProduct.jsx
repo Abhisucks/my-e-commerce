@@ -113,7 +113,9 @@ const AddProduct = () => {
             </div>
             <h5 className='text-center'>All Listed Products</h5>
 
-            {content}
+            <div className="table-responsive">
+                {content}
+            </div>
         </div>
 
 

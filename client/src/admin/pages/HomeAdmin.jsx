@@ -23,6 +23,7 @@ const HomeAdmin = () => {
                     <th scope="col">name</th>
                     <th scope="col">price</th>
                     <th scope="col">qty</th>
+                    <th scope="col">orderDate</th>
                     <th scope="col">userId</th>
                     <th scope="col">PaymentId</th>
                 </tr>
@@ -36,11 +37,10 @@ const HomeAdmin = () => {
                         </td>
                         <td>{item.price}</td>
                         <td>{item.qty}</td>
+                        <td>{item.orderDate}</td>
                         <td>{item.userId}</td>
                         <td>{item.paymentId}</td>
-                        {/* <td>
-     <button type="button" class="btn btn-outline-danger mx-2" >Delete</button>
- </td> */}
+
                     </tr>)
                 }
             </tbody>
@@ -49,7 +49,9 @@ const HomeAdmin = () => {
     return <>
         <div className="container mt-3">
             <h5 className='text-center'>All Orders</h5>
-            {content}
+            <div className="table-responsive">
+                {content}
+            </div>
 
         </div>
     </>

@@ -43,7 +43,9 @@ const Dashboard = () => {
     return <>
         <div className=' container mt-3'>
             <h5 className='text-center'>All Users</h5>
-            {content}
+            <div className="table-responsive">
+                {content}
+            </div>
         </div>
 
     </>
