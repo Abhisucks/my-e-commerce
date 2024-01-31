@@ -13,12 +13,17 @@ const PaymentSuccess = () => {
     const navigate = useNavigate()
 
 
-    // const modifiedCart = cart.map(({ _id, ...rest }) => rest);
-
     const modifiedCart = cart.map(({ _id, ...rest }) => ({
         ...rest,
         paymentId: referenceNum, // Use referenceNum as the paymentId
     }));
+
+    // const modifiedCart = cart.map(({ _id, count, qty, ...rest }) => ({
+    //     ...rest,
+    //     qty,
+    //     count: count - qty, // Update the count by subtracting qty
+    //     paymentId: referenceNum, // Use referenceNum as the paymentId
+    // }));
 
     useEffect(() => {
         if (cart.length > 0) {

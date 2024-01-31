@@ -10,9 +10,8 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './public/components/Login'
 import AdminLayout from './admin/AdminLayout'
-import HomeAdmin from './admin/pages/HomeAdmin'
+import HomeAdmin from './admin/pages/Dashboard'
 import AdminProtected from './admin/components/AdminProtected'
-import Dashboard from './admin/pages/Dashboard'
 import AddProduct from './admin/pages/AddProduct'
 import ShopSingle from './public/pages/ShopSingle'
 import Cart from './public/components/Cart'
@@ -20,6 +19,8 @@ import PaymentSuccess from './public/pages/PaymentSuccess'
 import Justforfun from './public/components/Justforfun'
 import OrderPlaced from './public/components/orderPlaced'
 import MyOrders from './public/components/MyOrders'
+import Users from './admin/pages/Users'
+import Dashboard from './admin/pages/Dashboard'
 
 const App = () => {
   return <>
@@ -41,8 +42,8 @@ const App = () => {
         </Route>
 
         <Route path='/admin' element={<AdminProtected compo={<AdminLayout />} />}>
-          <Route index element={<HomeAdmin />} />
-          <Route path='dash' element={<Dashboard />} />
+          <Route index element={<Dashboard />} />
+          <Route path='users' element={<Users />} />
           <Route path='add-pro' element={<AddProduct />} />
         </Route>
 

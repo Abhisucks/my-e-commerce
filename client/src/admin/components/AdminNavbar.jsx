@@ -59,13 +59,13 @@ const AdminNavbar = () => {
                     <div class="flex-fill">
                         <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                             <li class="nav-item">
-                                <Link to={"/admin"} class="nav-link" >Home</Link>
-                            </li>
-                            <li class="nav-item">
-                                <Link to={"/admin/dash"} class="nav-link" >Dashboard</Link>
+                                <Link to={"/admin"} class="nav-link" >Dashboard</Link>
                             </li>
                             <li class="nav-item">
                                 <Link to={"/admin/add-pro"} class="nav-link" >Add-product</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link to={"/admin/users"} class="nav-link" >Users</Link>
                             </li>
                             {/* <li class="nav-item">
                                 <Link to={"/contact"} class="nav-link" >All-users</Link>
