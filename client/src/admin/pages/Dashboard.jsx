@@ -34,7 +34,7 @@ const Dashboard = () => {
                 <div className="col-md-3 mb-1">
                     <div className="card bg-success text-white stats-box">
                         <div className="card-body">
-                            <h4 className="card-title text-center fw-light"><i className="bi bi-currency-dollar"></i>Total Sales</h4>
+                            <h4 className="card-title text-center fw-light"><i className="bi bi-currency-rupee"></i>Total Sales</h4>
                             <p className="card-text text-center fs-3 fw-bolder">
                                 {
                                     orders && orders.length > 0 && (

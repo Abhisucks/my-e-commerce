@@ -18,6 +18,9 @@ const ShopSingle = () => {
 
             dispatch(addToCart({ ...item, userId: login.id }))
             toast.success("Added To Cart", { autoClose: 300 })
+        } else {
+            dispatch(addToCart(item))
+            toast.success("Added To Cart", { autoClose: 300 })
         }
 
     }
@@ -53,7 +56,15 @@ const ShopSingle = () => {
                                 </ul>
                             </p>
                             <div className='d-flex'>
-                                <button type="button" className="btn text-light fw-bold me-2 w-100" onClick={e => handleAddToCart(location.state.item)} style={{ background: cartbtnColor }}><i className="bi bi-cart-plus mx-1"></i> Add To Cart</button>
+                                {
+                                    location.state.item.count > 0
+                                        ? <>
+                                            <button type="button" className="btn text-light fw-bold me-2 w-100" onClick={e => handleAddToCart(location.state.item)} style={{ background: cartbtnColor }}><i className="bi bi-cart-plus mx-1"></i> Add To Cart</button>
+                                        </>
+                                        : <>
+                                            <button type="button" className="btn text-light fw-bold me-2 w-100" style={{ background: btnColor }}><i class="bi bi-bag-x-fill"></i> Out Of Stock</button>
+                                        </>
+                                }
                                 {/* <button type="button" className="btn text-light fw-bold w-50" style={{ background: btnColor }}><i className="bi bi-bag-heart-fill mx-2"></i>Buy  Now</button> */}
                             </div>
                         </div>

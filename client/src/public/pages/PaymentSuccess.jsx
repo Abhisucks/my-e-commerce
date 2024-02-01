@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { addUserOrders } from '../../redux/actions/orderActions'
 import { clearCart } from '../../redux/slice/publicSlice'
+import { updateProStock } from '../../redux/actions/adminActions'
 const PaymentSuccess = () => {
 
     const { login, error, cart } = useSelector(state => state.public)
@@ -16,6 +17,7 @@ const PaymentSuccess = () => {
     const modifiedCart = cart.map(({ _id, ...rest }) => ({
         ...rest,
         paymentId: referenceNum, // Use referenceNum as the paymentId
+        productId: _id
     }));
 
     // const modifiedCart = cart.map(({ _id, count, qty, ...rest }) => ({
@@ -28,10 +30,12 @@ const PaymentSuccess = () => {
     useEffect(() => {
         if (cart.length > 0) {
             dispatch(addUserOrders(modifiedCart))
+
+            dispatch(updateProStock(modifiedCart))
         }
     }, [])
 
-    console.log(cart);
+    console.log(modifiedCart);
 
     useEffect(() => {
         if (orderAdded) {

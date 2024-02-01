@@ -23,7 +23,7 @@ const AddProduct = () => {
         title: "",
         price: 0,
         qty: 1,
-        count: 50
+        count: 200
     })
     const handleAddProduct = () => {
         console.log(product);
@@ -75,6 +75,7 @@ const AddProduct = () => {
                     <th scope="col">Title</th>
                     <th scope="col">Category</th>
                     <th scope="col">Price</th>
+                    <th scope="col">Stock</th>
                     <th scope="col">Actions</th>
 
                 </tr>
@@ -89,6 +90,7 @@ const AddProduct = () => {
                         <td>{item.title}</td>
                         <td>{item.category}</td>
                         <td>{item.price}</td>
+                        <td className={item.count <= 20 ? 'text-danger' : ''}>{item.count}</td>
                         <td>
                             <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editexampleModal" onClick={e => setselectedPro(item)}>Edit</button>
                             <button type="button" class="btn btn-outline-danger mx-2" data-bs-toggle="modal" data-bs-target="#deleteexampleModal" onClick={e => setproId(item._id)}>Delete</button>

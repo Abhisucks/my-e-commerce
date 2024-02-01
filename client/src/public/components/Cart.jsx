@@ -22,6 +22,8 @@ const Cart = () => {
         } else {
             navigate("/login")
         }
+
+        console.log(cart);
     }
 
 

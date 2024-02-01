@@ -35,3 +35,12 @@ export const editProduct = createAsyncThunk("admin/edit-pro", async (product, { 
     }
 })
 
+export const updateProStock = createAsyncThunk("admin/update-stock", async (productData, { rejectWithValue, getState }) => {
+    try {
+        const { data } = await api.put(`admin/updatePro/stock`, productData)
+        return true
+    } catch (error) {
+        return rejectWithValue(error.response.data.message || error.message || "something went wrong")
+    }
+})
+

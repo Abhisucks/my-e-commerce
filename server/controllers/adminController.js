@@ -52,3 +52,41 @@ exports.updateProduct = asyncHandler(async (req, res) => {
     })
 })
 
+
+
+exports.updateStock = asyncHandler(async (req, res) => {
+    const cartItems = req.body;
+
+    const results = [];
+
+    for (const cartItem of cartItems) {
+        const productId = cartItem.productId;
+        const quantity = cartItem.qty;
+        const stock = cartItem.count;
+
+        console.log(`Product ID: ${productId}`);
+
+        try {
+            // Find and update the Admin document by productId
+            const updatedAdmin = await Admin.findOneAndUpdate(
+                { _id: productId },
+                { $set: { count: stock - quantity } }, // Subtract quantity from count
+                { new: true } // Return the updated document
+            );
+
+            results.push(updatedAdmin);
+        } catch (error) {
+            console.error(`Error updating stock for productId ${productId}: ${error.message}`);
+            results.push({ error: `Failed to update stock for productId ${productId}` });
+        }
+    }
+
+    res.json({
+        message: "Order stock updated successfully",
+        results,
+    });
+});
+
+
+
+

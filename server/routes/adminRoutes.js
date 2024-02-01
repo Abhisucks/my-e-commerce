@@ -1,4 +1,4 @@
-const { addProduct, getAllProduct, getOneProduct, destroyProduct, updateProduct, deleteProduct } = require("../controllers/adminController")
+const { addProduct, getAllProduct, getOneProduct, destroyProduct, deleteProduct, updateStock, updateProduct, } = require("../controllers/adminController")
 
 const router = require("express").Router()
 
@@ -9,5 +9,7 @@ router
     .delete("/destroy", destroyProduct)
     .delete("/delete/:productId", deleteProduct)
     .put("/update/:productId", updateProduct)
+
+    .put("/updatePro/stock", updateStock)
 
 module.exports = router    
