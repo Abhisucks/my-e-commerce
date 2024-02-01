@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { CheckOutway, getAllUsers, loginUser, logoutUser, registerUser } from "../actions/publicActions";
-
+import { toast } from 'react-toastify'
 
 
 const publicSlice = createSlice({
@@ -13,11 +13,6 @@ const publicSlice = createSlice({
 
         cart: JSON.parse(localStorage.getItem("cart")) || [],
         total: JSON.parse(localStorage.getItem("total"))
-
-
-        // Add a "carts" property to store user-specific cart information
-
-
 
     },
     reducers: {
@@ -33,16 +28,57 @@ const publicSlice = createSlice({
         //     localStorage.setItem("total", JSON.stringify(state.total));
 
         // },
+        // addToCart: (state, { payload }) => {
+        //     // Check if the item already exists in the cart
+        //     const existingItemIndex = state.cart.findIndex(item => item._id === payload._id);
+
+        //     if (existingItemIndex !== -1) {
+        //         // Item already exists, update the quantity instead of adding a new item
+        //         state.cart[existingItemIndex].qty += payload.qty;
+        //     } else {
+        //         // Item doesn't exist, push it to the cart
+        //         state.cart.push(payload);
+        //     }
+
+        //     // Recalculate the total
+        //     state.total = state.cart.reduce((total, item) => total + (item.qty * item.price), 0);
+
+        //     // Update localStorage
+        //     localStorage.setItem("cart", JSON.stringify(state.cart));
+        //     localStorage.setItem("total", JSON.stringify(state.total));
+        // },
+
         addToCart: (state, { payload }) => {
             // Check if the item already exists in the cart
             const existingItemIndex = state.cart.findIndex(item => item._id === payload._id);
 
             if (existingItemIndex !== -1) {
                 // Item already exists, update the quantity instead of adding a new item
-                state.cart[existingItemIndex].qty += payload.qty;
+
+                // Check if adding the payload.qty exceeds the item count
+                if (state.cart[existingItemIndex].qty + payload.qty <= payload.count) {
+                    state.cart[existingItemIndex].qty += payload.qty;
+                    toast.success("Added To Cart", { autoClose: 300 })
+
+                } else {
+                    // Handle the case where adding more quantity exceeds the count
+                    console.warn("Cannot add more quantity. Item is out of stock.");
+                    toast.error("Product Is Out Of Stock", { autoClose: 600 })
+
+                }
             } else {
                 // Item doesn't exist, push it to the cart
-                state.cart.push(payload);
+
+                // Check if adding the payload.qty exceeds the item count
+                if (payload.qty <= payload.count) {
+                    state.cart.push(payload);
+                    toast.success("Added To Cart", { autoClose: 300 })
+
+                } else {
+                    // Handle the case where adding more quantity exceeds the count
+                    console.warn("Cannot add more quantity. Item is out of stock.");
+                    toast.error("Product Is Out Of Stock", { autoClose: 600 })
+                }
             }
 
             // Recalculate the total
@@ -52,6 +88,7 @@ const publicSlice = createSlice({
             localStorage.setItem("cart", JSON.stringify(state.cart));
             localStorage.setItem("total", JSON.stringify(state.total));
         },
+
 
         clearCart: (state) => {
             state.cart = [];
@@ -69,13 +106,36 @@ const publicSlice = createSlice({
         },
 
 
+        // // Action to increment the quantity of an item in the cart
+        // incrementCartItem: (state, { payload }) => {
+        //     state.cart[payload].qty += 1;
+        //     state.total = state.cart.reduce((total, item) => total + (item.qty * item.price), 0);
+        //     localStorage.setItem("cart", JSON.stringify(state.cart));
+        //     localStorage.setItem("total", JSON.stringify(state.total));
+        // },
+
         // Action to increment the quantity of an item in the cart
         incrementCartItem: (state, { payload }) => {
-            state.cart[payload].qty += 1;
-            state.total = state.cart.reduce((total, item) => total + (item.qty * item.price), 0);
-            localStorage.setItem("cart", JSON.stringify(state.cart));
-            localStorage.setItem("total", JSON.stringify(state.total));
+            const item = state.cart[payload];
+
+            // Check if the quantity is less than the count
+            if (item.qty < item.count) {
+                // Increment the quantity
+                item.qty += 1;
+
+                // Update the total
+                state.total = state.cart.reduce((total, item) => total + item.qty * item.price, 0);
+
+                // Update localStorage
+                localStorage.setItem("cart", JSON.stringify(state.cart));
+                localStorage.setItem("total", JSON.stringify(state.total));
+            } else {
+                // Handle the case where the quantity is already equal to or greater than the count
+                console.warn("Cannot add more quantity. Item is out of stock.");
+                toast.error("Product Is Out Of Stock", { autoClose: 600 })
+            }
         },
+
 
         // Action to decrement the quantity of an item in the cart
         decrementCartItem: (state, { payload }) => {

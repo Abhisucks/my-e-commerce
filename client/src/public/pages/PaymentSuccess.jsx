@@ -20,15 +20,8 @@ const PaymentSuccess = () => {
         productId: _id
     }));
 
-    // const modifiedCart = cart.map(({ _id, count, qty, ...rest }) => ({
-    //     ...rest,
-    //     qty,
-    //     count: count - qty, // Update the count by subtracting qty
-    //     paymentId: referenceNum, // Use referenceNum as the paymentId
-    // }));
-
     useEffect(() => {
-        if (cart.length > 0) {
+        if (cart.length > 0 && referenceNum) {
             dispatch(addUserOrders(modifiedCart))
 
             dispatch(updateProStock(modifiedCart))
