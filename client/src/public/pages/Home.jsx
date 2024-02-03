@@ -22,7 +22,7 @@ const Home = () => {
                     <div class="container">
                         <div class="row p-5">
                             <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                                <img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="" width="100%" />
+                                <img class="img-fluid" src="https://img.freepik.com/free-photo/basket-full-vegetables_1112-316.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="" width="100%" />
                             </div>
                             <div class="col-lg-6 mb-0 d-flex align-items-center">
                                 <div class="text-align-left align-self-center">
@@ -40,7 +40,7 @@ const Home = () => {
                     <div class="container">
                         <div class="row p-5">
                             <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                                <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="" />
+                                <img class="img-fluid" src="https://img.freepik.com/free-photo/flat-lay-wooden-spoons-with-variety-spices_23-2148601126.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="" />
                             </div>
                             <div class="col-lg-6 mb-0 d-flex align-items-center">
                                 <div class="text-align-left">
@@ -58,7 +58,7 @@ const Home = () => {
                     <div class="container">
                         <div class="row p-5">
                             <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                                <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="" />
+                                <img class="img-fluid" src="https://img.freepik.com/premium-photo/group-tropical-fresh-fruits-vegetables-isolated-white-background_3236-1468.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="" />
                             </div>
                             <div class="col-lg-6 mb-0 d-flex align-items-center">
                                 <div class="text-align-left">

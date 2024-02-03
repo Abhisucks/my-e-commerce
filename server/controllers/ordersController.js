@@ -30,3 +30,13 @@ exports.destroyUserOders = asyncHandler(async (req, res) => {
         message: "User Orders Destroy Succssefully", result
     })
 })
+
+exports.deleteOneOrder = asyncHandler(async (req, res) => {
+    const { orderId } = req.params
+    const result = await BuyProduct.findByIdAndDelete(orderId)
+
+    res.json({
+        message: "order Delete Succssefully",
+        result
+    })
+})

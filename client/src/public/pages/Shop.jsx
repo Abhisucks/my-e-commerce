@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllProduct } from '../../redux/actions/adminActions'
 import { Navigate, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
+import Loader from '../components/Loader'
 
 const Shop = () => {
     const navigate = useNavigate()
@@ -10,7 +11,7 @@ const Shop = () => {
 
     const [productcate, setProductCate] = useState("all products")
     const [priceRange, setPriceRange] = useState("all prices")
-    const { allProducts } = useSelector(state => state.admin)
+    const { allProducts, loading: productLoading, error: productError } = useSelector(state => state.admin)
     useEffect(() => {
         dispatch(getAllProduct())
     }, [])
@@ -39,14 +40,14 @@ const Shop = () => {
             filterByPrice(item)
     );
 
+    if (productLoading) {
+        return <Loader />
+    }
 
-    // const result = productcate === "all products"
-    //     ? allProducts
-    //     : allProducts.filter(item => item.category === productcate);
-
-    // console.log(result);
-    // console.log(productcate);
-
+    if (productError) {
+        // Handle the error here, you can render an error message or take any other action
+        return <div>Error loading products. Please try again later.</div>;
+    }
 
     return <>
         <div className="container">

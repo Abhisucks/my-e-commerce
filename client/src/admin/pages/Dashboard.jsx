@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllOrders } from '../../redux/actions/orderActions'
+import { deleteOneOrder, getAllOrders } from '../../redux/actions/orderActions'
 import { getAllUsers } from '../../redux/actions/publicActions'
 import { getAllProduct } from '../../redux/actions/adminActions'
+import { invalidate } from '../../redux/slice/orderSlice'
+import { toast } from 'react-toastify'
+import Loader from '../../public/components/Loader'
 
 const Dashboard = () => {
-    const { orders } = useSelector(state => state.order)
-    const { loading, error, users } = useSelector(state => state.public)
+    const { orders, orderDeleted, error: orderError, loading: orderLoading } = useSelector(state => state.order)
+    const { users } = useSelector(state => state.public)
     const { allProducts } = useSelector(state => state.admin)
 
     const dispatch = useDispatch()
@@ -18,7 +21,22 @@ const Dashboard = () => {
         dispatch(getAllProduct())
     }, [])
 
+    useEffect(() => {
+        if (orderDeleted) {
+            dispatch(getAllOrders())
+            toast.success("Order Deleted Successfully")
+            dispatch(invalidate(["orderDeleted"]))
+        }
+        if (orderError) {
+            toast.error(orderError.message)
+            dispatch(invalidate(["error"]))
+        }
+    }, [orderDeleted])
 
+
+    const handleDeleteOrder = (orderId) => {
+        dispatch(deleteOneOrder(orderId))
+    }
 
     const adminStats = <>
         <div className="mt-5">
@@ -77,6 +95,7 @@ const Dashboard = () => {
                     <th scope="col">orderDate</th>
                     <th scope="col">userId</th>
                     <th scope="col">PaymentId</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -91,12 +110,21 @@ const Dashboard = () => {
                         <td>{item.orderDate}</td>
                         <td>{item.userId}</td>
                         <td>{item.paymentId}</td>
+                        <td>
+                            <button type="button" onClick={e => handleDeleteOrder(item._id)}
+                                class="btn btn-outline-danger">Delete</button>
+                        </td>
 
                     </tr>)
                 }
             </tbody>
         </table>
     </>
+
+    if (orderLoading) {
+        return <Loader />
+    }
+
     return <>
 
         <div className="container mt-5">

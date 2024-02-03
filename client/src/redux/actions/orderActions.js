@@ -28,3 +28,12 @@ export const getOneUserOrders = createAsyncThunk("order/get/user", async (userOr
     }
 })
 
+export const deleteOneOrder = createAsyncThunk("order/delete/user", async (userOrderId, { rejectWithValue, getState }) => {
+    try {
+        await api.delete(`orders/remove/${userOrderId}`)
+        return true
+    } catch (error) {
+        return rejectWithValue(error.response.data.message || error.message || "something went wrong")
+    }
+})
+

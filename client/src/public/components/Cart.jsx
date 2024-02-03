@@ -4,17 +4,14 @@ import { decrementCartItem, deleteCartItem, incrementCartItem } from '../../redu
 import { Link, useNavigate } from 'react-router-dom'
 import { CheckOutway } from '../../redux/actions/publicActions'
 import api from '../../redux/api'
+import Loader from './Loader'
 
 const Cart = () => {
     const btnColor = "#FB641B"
-    const { cart, total, login } = useSelector(state => state.public)
+    const { cart, total, login, checked, loading: razorpayLoading } = useSelector(state => state.public)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    // const cartF = cart.filter((item) => item.userId === (JSON.parse(localStorage.getItem("loginInfoo")).id)) 
-    const cartF = login
-        ? cart.filter((item) => item.userId === (JSON.parse(localStorage.getItem("loginInfoo")).id))
-        : cart
 
     const handlepay = () => {
         if (login) {
@@ -24,6 +21,11 @@ const Cart = () => {
         }
 
         console.log(cart);
+    }
+
+
+    if (razorpayLoading) {
+        return <Loader />;
     }
 
 

@@ -1,10 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addUserOrders, getAllOrders, getOneUserOrders } from "../actions/orderActions";
+import { addUserOrders, deleteOneOrder, getAllOrders, getOneUserOrders } from "../actions/orderActions";
 
 const orderSlice = createSlice({
     name: "order",
     initialState: {},
-    reducers: {},
+    reducers: {
+        invalidate: (state, { payload }) => {
+            payload.forEach(item => {
+                state[item] = false
+            });
+        }
+    },
     extraReducers: builder => builder
         .addCase(addUserOrders.pending, (state, { payload }) => {
             state.loading = true
@@ -28,6 +34,7 @@ const orderSlice = createSlice({
             state.loading = false
             state.error = payload
         })
+
         .addCase(getOneUserOrders.pending, (state, { payload }) => {
             state.loading = true
         })
@@ -40,6 +47,19 @@ const orderSlice = createSlice({
             state.error = payload
         })
 
+        .addCase(deleteOneOrder.pending, (state, { payload }) => {
+            state.loading = true
+        })
+        .addCase(deleteOneOrder.fulfilled, (state, { payload }) => {
+            state.loading = false
+            state.orderDeleted = payload
+        })
+        .addCase(deleteOneOrder.rejected, (state, { payload }) => {
+            state.loading = false
+            state.error = payload
+        })
+
 })
 
+export const { invalidate } = orderSlice.actions
 export default orderSlice.reducer
