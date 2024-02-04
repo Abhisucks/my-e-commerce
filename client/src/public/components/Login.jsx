@@ -52,7 +52,7 @@ const Login = () => {
     if (loading) <div class="spinner-border text-primary"></div>
     return <>
         <div class="container mt-5">
-            <div class="row flex-column-reverse  flex-sm-row">
+            <div class="row flex-column-reverse flex-sm-row">
                 <div className="col-sm-4 ">
                     {/* <img src="https://img.freepik.com/free-vector/secure-login-concept-illustration_114360-4320.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" className=' img-fluid' alt="" /> */}
                     <img src="https://img.freepik.com/free-vector/computer-login-concept-illustration_114360-7892.jpg?w=740&t=st=1706857252~exp=1706857852~hmac=5ff56d841dd60df4af5d689dc76fd4857faa3662489de95cdae36c2cdc810bd2" className=' img-fluid' alt="" />

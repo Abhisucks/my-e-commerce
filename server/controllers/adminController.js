@@ -64,8 +64,6 @@ exports.updateStock = asyncHandler(async (req, res) => {
         const quantity = cartItem.qty;
         const stock = cartItem.count;
 
-        console.log(`Product ID: ${productId}`);
-
         try {
             // Find and update the Admin document by productId
             const updatedAdmin = await Admin.findOneAndUpdate(

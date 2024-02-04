@@ -14,11 +14,27 @@ const PaymentSuccess = () => {
     const navigate = useNavigate()
 
 
-    const modifiedCart = cart.map(({ _id, ...rest }) => ({
-        ...rest,
-        paymentId: referenceNum, // Use referenceNum as the paymentId
-        productId: _id
-    }));
+    // const modifiedCart = cart.map(({ _id, ...rest }) => ({
+    //     ...rest,
+    //     paymentId: referenceNum, // Use referenceNum as the paymentId
+    //     productId: _id
+    // }));
+
+    const modifiedCart = cart.map(item => {
+        if (!item.hasOwnProperty('userId')) {
+            // Add userId to the item
+            item = { ...item, userId: login.id };
+        }
+
+        // Destructure item and omit _id
+        const { _id, ...rest } = item;
+
+        return {
+            ...rest,
+            paymentId: referenceNum,
+            productId: _id
+        };
+    });
 
     useEffect(() => {
         if (cart.length > 0 && referenceNum) {
@@ -28,7 +44,7 @@ const PaymentSuccess = () => {
         }
     }, [])
 
-    console.log(modifiedCart);
+    // console.log(modifiedCart);
 
     useEffect(() => {
         if (orderAdded) {

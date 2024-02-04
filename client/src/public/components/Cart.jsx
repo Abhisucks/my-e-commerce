@@ -16,13 +16,12 @@ const Cart = () => {
     const handlepay = () => {
         if (login) {
             dispatch(CheckOutway(total))
+            updatedCart()
         } else {
             navigate("/login")
         }
 
-        console.log(cart);
     }
-
 
     if (razorpayLoading) {
         return <Loader />;
