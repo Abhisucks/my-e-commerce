@@ -15,7 +15,7 @@ const ShopSingle = () => {
     const handleAddToCart = (item) => {
         // console.log(item);
         if (login) {
-            dispatch(addToCart({ ...item, userId: login.id }))
+            dispatch(addToCart(item))
             // toast.success("Added To Cart", { autoClose: 300 })
         } else {
             dispatch(addToCart(item))

@@ -21,20 +21,17 @@ const PaymentSuccess = () => {
     // }));
 
     const modifiedCart = cart.map(item => {
-        if (!item.hasOwnProperty('userId')) {
-            // Add userId to the item
-            item = { ...item, userId: login.id };
-        }
-
-        // Destructure item and omit _id
         const { _id, ...rest } = item;
 
         return {
             ...rest,
+            userId: login.id,
             paymentId: referenceNum,
             productId: _id
         };
     });
+
+    console.log(modifiedCart);
 
     useEffect(() => {
         if (cart.length > 0 && referenceNum) {

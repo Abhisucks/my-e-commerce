@@ -23,6 +23,8 @@ const Cart = () => {
 
     }
 
+    console.log(cart);
+
     if (razorpayLoading) {
         return <Loader />;
     }
