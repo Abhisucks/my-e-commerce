@@ -31,8 +31,6 @@ const PaymentSuccess = () => {
         };
     });
 
-    console.log(modifiedCart);
-
     useEffect(() => {
         if (cart.length > 0 && referenceNum) {
             dispatch(addUserOrders(modifiedCart))
@@ -40,8 +38,6 @@ const PaymentSuccess = () => {
             dispatch(updateProStock(modifiedCart))
         }
     }, [])
-
-    // console.log(modifiedCart);
 
     useEffect(() => {
         if (orderAdded) {

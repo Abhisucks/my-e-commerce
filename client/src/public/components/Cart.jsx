@@ -23,12 +23,10 @@ const Cart = () => {
 
     }
 
-    console.log(cart);
 
     if (razorpayLoading) {
         return <Loader />;
     }
-
 
     return <>
         <div class="container mt-3">
