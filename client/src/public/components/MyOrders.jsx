@@ -3,10 +3,11 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getOneUserOrders } from '../../redux/actions/orderActions'
 import { Link } from "react-router-dom"
+import Loader from './Loader'
 
 const MyOrders = () => {
     const { login, error } = useSelector(state => state.public)
-    const { yourOrders } = useSelector(state => state.order)
+    const { yourOrders, loading: orderLoading } = useSelector(state => state.order)
 
     const dispatch = useDispatch()
 
@@ -80,6 +81,10 @@ const MyOrders = () => {
             })
         }
     </>
+
+    if (orderLoading) {
+        return <Loader />
+    }
 
     return <>
         <div className="container mt-5">

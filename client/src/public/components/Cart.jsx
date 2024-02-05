@@ -37,7 +37,7 @@ const Cart = () => {
                             ? <>
                                 {
                                     cart && cart.map((item, i) =>
-                                        <div class="row mt-1 mb-2">
+                                        <div class="row mt-1 mb-1">
                                             <div class="col-lg-3 col-3 img-fluid">
                                                 <img width="100%"
                                                     src={`${item.img}`}
@@ -47,8 +47,7 @@ const Cart = () => {
                                                 <h5>{item.title}</h5>
                                                 <p>₹{item.price}</p>
 
-                                                <span class="ps-lg-5 position-absolute top-0 end-0 pe-4 d-lg-none"><i
-                                                    class="bi bi-x-lg"></i></span>
+                                                <span class="ps-lg-5 position-absolute top-0 end-0 pe-4 d-lg-none"><i onClick={() => dispatch(deleteCartItem(i))} class="bi bi-x-lg"></i></span>
 
                                             </div>
                                             <div class="col-lg-3 mt-3 offset-3 col-3 offset-lg-0">
@@ -79,7 +78,7 @@ const Cart = () => {
                                                 <span>₹{item.price * item.qty}</span>
                                                 <span class="ps-lg-5 d-none d-lg-inline"><i onClick={() => dispatch(deleteCartItem(i))} class="bi bi-x-lg"></i></span>
                                             </div>
-
+                                            <hr className='mt-1' />
                                         </div>
 
                                     )
@@ -87,10 +86,31 @@ const Cart = () => {
 
                             </>
                             : <>
-                                <h4 className='m-5 mb-0'>
-                                    Cart is Empty
-                                </h4>
-                                <Link className='m-5 mt-0' to={"/shop"}>Shop Now</Link>
+
+                                <div className="container text-center mt-5">
+                                    <div className="row">
+                                        <div className="col-sm-6">
+                                            <img
+                                                src="https://img.freepik.com/free-vector/hand-drawn-people-supermarket-illustration_23-2148110347.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais"
+                                                alt="Empty Cart Illustration"
+                                                className="img-fluid"
+                                            />
+                                        </div>
+                                        <div className="col-sm-4 text-center">
+                                            <div>
+                                                <h4 className="m-0 mb-2 fw-light" >Your Cart is Empty!</h4>
+                                                <p className="text-muted mb-4">Explore our shop and discover amazing products.</p>
+                                                <Link to={"/shop"} className="btn btn-outline-success">
+                                                    <i className="bi bi-shop"></i> Shop Now
+                                                </Link>
+
+                                                <hr />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
                             </>
                     }
 

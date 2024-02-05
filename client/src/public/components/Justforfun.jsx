@@ -1,44 +1,22 @@
 import React from 'react';
 
 const StatisticsDashboard = () => {
-    return (
-        <div className="container mt-5">
-            <div className="row">
-                <div className="col-md-3">
-                    <div className="card bg-info text-white stats-box">
-                        <div className="card-body">
-                            <h4 className="card-title text-center"><i className="bi bi-box"></i> Total Products</h4>
-                            <p className="card-text text-center">10</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="card bg-success text-white stats-box">
-                        <div className="card-body">
-                            <h4 className="card-title text-center"><i className="bi bi-currency-dollar"></i>Total Sales</h4>
-                            <p className="card-text text-center">$54</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="card bg-primary text-white stats-box">
-                        <div className="card-body">
-                            <h4 className="card-title text-center"><i className="bi bi-person-plus"></i> Total Signups</h4>
-                            <p className="card-text text-center">0</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="card bg-warning text-dark stats-box">
-                        <div className="card-body">
-                            <h4 className="card-title text-center"><i className="bi bi-cart"></i> Total Orders</h4>
-                            <p className="card-text text-center">2</p>
-                        </div>
-                    </div>
+    return <>
+        <div className='position-relative bg-black pb-5 p-5 ' style={{ height: "18rem" }}>
+            {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem illum atque eius, nulla quam quasi fugiat voluptas sunt numquam quidem autem consectetur cumque adipisci vero unde natus tenetur corrupti, quaerat impedit nam soluta quod reprehenderit dicta quisquam! Vitae similique atque architecto suscipit harum veniam voluptatibus nemo dolores est. Dicta, magnam consequuntur?</p> */}
+            {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem illum atque eius, nulla quam quasi fugiat voluptas sunt numquam quidem autem consectetur cumque adipisci vero unde natus tenetur corrupti, quaerat impedit nam soluta quod reprehenderit dicta quisquam! Vitae similique atque architecto suscipit harum veniam voluptatibus nemo dolores est. Dicta, magnam consequuntur?</p> */}
+
+            <div className='position-absolute  border-0 top-50'>
+
+                <div class="card text-center shadow " style={{ width: "18rem" }}>
+                    <img src="https://static.wixstatic.com/media/375882_3f060d74b64143eca7b9d8bf7ae00f56~mv2_d_4774_3183_s_4_2.jpg/v1/fill/w_438,h_438,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/375882_3f060d74b64143eca7b9d8bf7ae00f56~mv2_d_4774_3183_s_4_2.jpg" class="card-img-top" alt="..." className='' />
+
                 </div>
             </div>
+
         </div>
-    );
+    </>
+
 };
 
 export default StatisticsDashboard;

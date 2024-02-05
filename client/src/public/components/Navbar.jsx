@@ -51,7 +51,7 @@ const Navbar = () => {
             <div class="container d-flex justify-content-between align-items-center">
 
                 <Link to={"/"} class="navbar-brand text-success logo h1 align-self-center" >
-                    Zay
+                    Zen
                 </Link>
 
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
@@ -80,8 +80,8 @@ const Navbar = () => {
                     </div>
                     <div class="navbar align-self-center d-flex">
                         <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ..." />
+                            <div class="input-group ">
+                                <input type="text" disabled class="form-control" id="inputMobileSearch" placeholder="Search ..." />
                                 <div class="input-group-text">
                                     <i class="fa fa-fw fa-search"></i>
                                 </div>
