@@ -20,8 +20,7 @@ const OrderPlaced = () => {
             <div className="row">
                 <div className="col-sm-5 mt-5 pt-5 text-center">
                     <h3 className="fw-bold">Hurry!</h3>
-                    <h4 className="fw-bold">Your Order Is Placed Successfully!</h4>
-                    <p>Payment Id-</p>
+                    <h4 className="">Your Order Is Placed Successfully!</h4>
                     <Link to="/myorders">My Orders</Link>
                 </div>
                 <div className="col-sm-7">
