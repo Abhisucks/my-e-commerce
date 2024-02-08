@@ -80,7 +80,7 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <div class="d-flex mt-2 mt-lg-0">
+                    <div class="d-flex mt-2 mt-lg-0 flex-lg-row flex-row-reverse justify-content-end justify-content-lg-start">
                         <Link to={"/cart"} class="nav-icon position-relative text-decoration-none text-dark mt-2 ms-3">
                             <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                             <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
@@ -89,7 +89,7 @@ const Navbar = () => {
                         </Link>
 
                         {login ? (
-                            <div class="ms-4">
+                            <div class="ms-lg-4 ms-2">
                                 <div class="dropdown">
                                     <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
                                         <i class="fa fa-fw fa-user mr-3"></i>
@@ -114,7 +114,7 @@ const Navbar = () => {
                                 </div>
                             </div>
                         ) : (
-                            <Link to={"/login"} class="nav-icon position-relative text-decoration-none text-dark ms-4">
+                            <Link to={"/login"} class="nav-icon position-relative text-decoration-none text-dark ms-lg-4 ms-2">
                                 <button class="btn btn-outline-dark" type="button">
                                     <i class="fa fa-fw fa-user mr-3"></i>
                                     <span className='ms-1'>Login</span>
