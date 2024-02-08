@@ -7,18 +7,17 @@ const About = () => {
             <div class="container">
                 <div class="row align-items-center py-5">
                     <div class="col-md-8 text-white">
-                        <h1>About Us</h1>
+                        <h1>About ZEN</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            ZEN is your go-to destination for premium organic products. We are dedicated to providing you with fresh, locally sourced, and sustainably produced goods. Join us on our mission to make organic living accessible and enjoyable for all.
                         </p>
                     </div>
                     <div class="col-md-4">
-                        <img src="assets/img/about-hero.svg" alt="About Hero" />
+                        <img src="https://img.freepik.com/free-vector/hand-drawn-flat-design-food-bank-illustration_23-2149344811.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="About Hero" className='img-fluid rounded-circle' />
                     </div>
                 </div>
             </div>
+
         </section>
         {/* <!-- Close Banner --> */}
 
@@ -28,8 +27,7 @@ const About = () => {
                 <div class="col-lg-6 m-auto">
                     <h1 class="h1">Our Services</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        Lorem ipsum dolor sit amet.
+                        At ZEN, we strive to enhance your shopping experience with a range of services designed to meet your needs.
                     </p>
                 </div>
             </div>
@@ -64,7 +62,87 @@ const About = () => {
                 </div>
             </div>
         </section>
+
         {/* <!-- End Section --> */}
+
+
+        <div className="container mb-5">
+            <h3 className="text-center mb-3 h1">Frequently Asked Questions?</h3>
+
+            {/* FAQ Section */}
+            <div id="faqAccordion">
+
+                {/* Question 1 */}
+                <div className="card border-0">
+                    <div className="card-header bg-light" id="question1">
+                        <h5 className="mb-0">
+                            <button className="btn btn-link text-dark " data-bs-toggle="collapse" data-bs-target="#answer1" aria-expanded="true" aria-controls="answer1">
+                                Why choose organic products?
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="answer1" className="collapse show" aria-labelledby="question1" data-parent="#faqAccordion">
+                        <div className="card-body">
+                            Organic products are a healthier and environmentally friendly choice. They are grown without synthetic pesticides, herbicides, and genetically modified organisms, promoting overall well-being and sustainability.
+                        </div>
+                    </div>
+                </div>
+
+                {/* Question 2 */}
+                <div className="card border-0">
+                    <div className="card-header bg-light" id="question2">
+                        <h5 className="mb-0">
+                            <button className="btn btn-link text-dark collapsed" data-bs-toggle="collapse" data-bs-target="#answer2" aria-expanded="false" aria-controls="answer2">
+                                What are the benefits of consuming organic food?
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="answer2" className="collapse" aria-labelledby="question2" data-parent="#faqAccordion">
+                        <div className="card-body">
+                            Organic food is rich in nutrients, free from harmful chemicals, and supports sustainable farming practices. It can contribute to improved health, better taste, and reduced environmental impact.
+                        </div>
+                    </div>
+                </div>
+
+                {/* Question 3 */}
+                <div className="card border-0">
+                    <div className="card-header bg-light" id="question3">
+                        <h5 className="mb-0">
+                            <button className="btn btn-link text-dark collapsed" data-bs-toggle="collapse" data-bs-target="#answer3" aria-expanded="false" aria-controls="answer3">
+                                Are organic products better for the environment?
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="answer3" className="collapse" aria-labelledby="question3" data-parent="#faqAccordion">
+                        <div className="card-body">
+                            Yes, choosing organic products supports eco-friendly farming practices. Organic farming reduces soil and water pollution, conserves biodiversity, and promotes sustainable agriculture methods, contributing to a healthier planet.
+                        </div>
+                    </div>
+                </div>
+
+                {/* Question 4 */}
+                <div className="card border-0">
+                    <div className="card-header bg-light" id="question4">
+                        <h5 className="mb-0">
+                            <button className="btn btn-link text-dark collapsed" data-bs-toggle="collapse" data-bs-target="#answer4" aria-expanded="false" aria-controls="answer4">
+                                Are there any health benefits of using organic skincare products?
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="answer4" className="collapse" aria-labelledby="question4" data-parent="#faqAccordion">
+                        <div className="card-body">
+                            Yes, organic skincare products are free from harmful chemicals and synthetic additives, making them gentler on the skin. They can provide nourishment, hydration, and promote healthier skin without exposure to potentially harmful substances.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {/* End FAQ Section */}
+        </div>
 
         {/* <!-- Start Brands --> */}
         <section class="bg-light py-5">
@@ -97,17 +175,18 @@ const About = () => {
                                         <div class="carousel-item active">
                                             <div class="row">
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/certified-organic-food-product-green-label-sticker_1017-25576.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/organic-products-label_23-2147492572.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/best-qaulity-natural-product-label-stocker_1017-26203.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/100-organic-food-certified-label_1017-19669.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
+
                                             </div>
                                         </div>
                                         {/* <!--End First slide--> */}
@@ -116,17 +195,18 @@ const About = () => {
                                         <div class="carousel-item">
                                             <div class="row">
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/certified-organic-food-product-green-label-sticker_1017-25576.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/organic-products-label_23-2147492572.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/best-qaulity-natural-product-label-stocker_1017-26203.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/100-organic-food-certified-label_1017-19669.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
+
                                             </div>
                                         </div>
                                         {/* <!--End Second slide--> */}
@@ -135,17 +215,18 @@ const About = () => {
                                         <div class="carousel-item">
                                             <div class="row">
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/certified-organic-food-product-green-label-sticker_1017-25576.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/organic-products-label_23-2147492572.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/best-qaulity-natural-product-label-stocker_1017-26203.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
                                                 <div class="col-3 p-md-5">
-                                                    <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo" /></a>
+                                                    <a href="#"><img class="img-fluid brand-img rounded-circle" src="https://img.freepik.com/free-vector/100-organic-food-certified-label_1017-19669.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="Brand Logo" /></a>
                                                 </div>
+
                                             </div>
                                         </div>
                                         {/* <!--End Third slide--> */}

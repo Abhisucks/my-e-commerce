@@ -23,6 +23,7 @@ const Home = () => {
                         <div class="row p-5">
                             <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
                                 <img class="img-fluid" src="https://img.freepik.com/free-photo/basket-full-vegetables_1112-316.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="" width="100%" />
+                                {/* <img class="img-fluid" src="https://img.freepik.com/premium-photo/paper-bag-different-food-isolated_185193-17549.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="" width="100%" /> */}
                             </div>
                             <div class="col-lg-6 mb-0 d-flex align-items-center">
                                 <div class="text-align-left align-self-center">
@@ -134,7 +135,7 @@ const Home = () => {
                     <div class="col-12 col-md-4 mb-4">
                         <div class="card h-100">
                             <a href="shop-single.html">
-                                <img src="./assets/img/feature_prod_01.jpg" class="card-img-top" alt="..." />
+                                <img src="https://img.freepik.com/free-photo/different-vegetables-seeds-fruits-table-healthy-diet-flat-lay-top-view_1150-42611.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" class="card-img-top" alt="..." />
                             </a>
                             <div class="card-body">
                                 <ul class="list-unstyled d-flex justify-content-between">
@@ -159,7 +160,7 @@ const Home = () => {
                     <div class="col-12 col-md-4 mb-4">
                         <div class="card h-100">
                             <a href="shop-single.html">
-                                <img src="./assets/img/feature_prod_02.jpg" class="card-img-top" alt="..." />
+                                <img src="https://img.freepik.com/premium-photo/high-angle-view-food-table_1048944-4398612.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" class="card-img-top" alt="..." />
                             </a>
                             <div class="card-body">
                                 <ul class="list-unstyled d-flex justify-content-between">
@@ -184,7 +185,7 @@ const Home = () => {
                     <div class="col-12 col-md-4 mb-4">
                         <div class="card h-100">
                             <a href="shop-single.html">
-                                <img src="./assets/img/feature_prod_03.jpg" class="card-img-top" alt="..." />
+                                <img src="https://img.freepik.com/free-photo/top-view-fresh-foods-spices-vegetables-bottom-white-table_140725-142722.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" class="card-img-top" alt="..." />
                             </a>
                             <div class="card-body">
                                 <ul class="list-unstyled d-flex justify-content-between">
