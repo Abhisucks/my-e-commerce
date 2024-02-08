@@ -21,6 +21,7 @@ import OrderPlaced from './public/components/orderPlaced'
 import MyOrders from './public/components/MyOrders'
 import Users from './admin/pages/Users'
 import Dashboard from './admin/pages/Dashboard'
+import PageNotFound from './public/pages/PageNotFound'
 
 const App = () => {
   return <>
@@ -39,6 +40,8 @@ const App = () => {
           <Route path='paymentsuccess' element={<PaymentSuccess />} />
           <Route path='orderplaced' element={<OrderPlaced />} />
           <Route path='myorders' element={<MyOrders />} />
+
+          <Route path="*" element={<PageNotFound />} />
         </Route>
 
         <Route path='/admin' element={<AdminProtected compo={<AdminLayout />} />}>
@@ -47,7 +50,7 @@ const App = () => {
           <Route path='add-pro' element={<AddProduct />} />
         </Route>
 
-        <Route path="*" element={<h1>Page Not Found</h1>} />
+        {/* <Route path="*" element={<PageNotFound />} /> */}
 
       </Routes>
       <ToastContainer />

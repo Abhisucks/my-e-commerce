@@ -92,7 +92,7 @@ const Shop = () => {
                                 <img class="card-img rounded-0 img-fluid" src={item.img} />
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center" >
                                     <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" ><i class="far fa-heart"></i></a></li>
+                                        {/* <li><a class="btn btn-success text-white" ><i class="far fa-heart"></i></a></li> */}
                                         <li><a class="btn btn-success text-white mt-2" ><i class="far fa-eye"></i></a></li>
                                         <li><a class="btn btn-success text-white mt-2" ><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
