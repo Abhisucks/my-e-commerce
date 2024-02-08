@@ -47,6 +47,7 @@ const Navbar = () => {
         </nav>
         {/* <!-- Close Top Nav --> */}
 
+
         <nav class="navbar navbar-expand-lg navbar-light shadow">
             <div class="container d-flex justify-content-between align-items-center">
 
@@ -60,7 +61,7 @@ const Navbar = () => {
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                <div class=" collapse navbar-collapse "
                     id="templatemo_main_nav">
                     <div class="flex-fill">
                         <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
@@ -78,63 +79,50 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    <div class="navbar align-self-center d-flex">
-                        <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                            <div class="input-group ">
-                                <input type="text" disabled class="form-control" id="inputMobileSearch" placeholder="Search ..." />
-                                <div class="input-group-text">
-                                    <i class="fa fa-fw fa-search"></i>
+                    <div class="d-flex">
+                        <Link to={"/cart"} class="nav-icon position-relative text-decoration-none text-dark mt-2">
+                            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
+                                {cart && cart.length}
+                            </span>
+                        </Link>
+
+                        {login ? (
+                            <div class="ms-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+                                        <i class="fa fa-fw fa-user mr-3"></i>
+                                        <span className='ms-1'>{login.name}</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <Link to={"/myorders"} className='text-decoration-none'>
+                                                <button class="dropdown-item">
+                                                    <i class="bi bi-bag-check me-2"></i>
+                                                    My Orders
+                                                </button>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <button onClick={handleLogout} class="dropdown-item">
+                                                <i class="bi bi-box-arrow-right me-2"></i>
+                                                Logout
+                                            </button>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                        </div>
-                        <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
-                            data-bs-target="#templatemo_search">
-                            <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                        </a>
-                        <a class="nav-icon position-relative text-decoration-none" >
-                            <Link to={"/cart"}> <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i> </Link>
-                            <span
-                                class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">{cart && cart.length}</span>
-                        </a>
-
-                        {
-                            login ? <>
-                                <div className='ms-auto'>
-                                    <div class="dropdown ">
-                                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" >
-                                            <i class="fa fa-fw fa-user mr-3"></i>
-                                            <span className='ms-1'>{login.name}</span>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <Link to={"/myorders"} className='text-decoration-none'>
-                                                    <button class="dropdown-item">
-                                                        <i class="bi bi-bag-check me-2"></i>
-                                                        My Orders
-                                                    </button>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <button onClick={handleLogout} class="dropdown-item">
-                                                    <i class="bi bi-box-arrow-right me-2"></i>
-                                                    Logout
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </>
-                                : <>
-                                    <Link to={"/login"} class="nav-icon position-relative text-decoration-none" >
-                                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                                    </Link>
-                                </>
-                        }
+                        ) : (
+                            <Link to={"/login"} class="nav-icon position-relative text-decoration-none text-dark">
+                                <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                            </Link>
+                        )}
                     </div>
                 </div>
 
             </div>
         </nav >
+
         {/* <!-- Close Header --> */}
 
 
