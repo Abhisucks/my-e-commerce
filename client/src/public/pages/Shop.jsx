@@ -4,6 +4,9 @@ import { getAllProduct } from '../../redux/actions/adminActions'
 import { Navigate, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Loader from '../components/Loader'
+import Error from '../components/Error'
+import { invalidate } from '../../redux/slice/adminSlice'
+
 
 const Shop = () => {
     const navigate = useNavigate()
@@ -45,9 +48,13 @@ const Shop = () => {
     }
 
     if (productError) {
+        // dispatch(invalidate(["error"]))
+
         // Handle the error here, you can render an error message or take any other action
-        return <div>Error loading products. Please try again later.</div>;
+        // toast.error(productError.message)
+        return <Error productError={productError} />
     }
+
 
     return <>
         <div className="container">

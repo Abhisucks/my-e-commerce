@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addProduct, deleteProduct, editProduct, getAllProduct } from '../../redux/actions/adminActions'
 import { toast } from 'react-toastify'
 import { invalidate } from '../../redux/slice/adminSlice'
+import Loader from '../../public/components/Loader'
 // import { getUsers } from '../../redux/actions/publicActions'
 
 const AddProduct = () => {
@@ -104,7 +105,10 @@ const AddProduct = () => {
 
 
 
-    if (loading) <div class="spinner-border text-primary"></div>
+    if (loading) {
+        return <Loader />
+    }
+
     return <>
 
         <div className="container">
