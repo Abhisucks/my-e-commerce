@@ -64,7 +64,7 @@ const Navbar = () => {
                 <div class=" collapse navbar-collapse "
                     id="templatemo_main_nav">
                     <div class="flex-fill">
-                        <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto ms-3">
                             <li class="nav-item">
                                 <Link to={"/"} class="nav-link" >Home</Link>
                             </li>
@@ -80,8 +80,8 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <div class="d-flex">
-                        <Link to={"/cart"} class="nav-icon position-relative text-decoration-none text-dark mt-2">
+                    <div class="d-flex mt-2 mt-lg-0">
+                        <Link to={"/cart"} class="nav-icon position-relative text-decoration-none text-dark mt-2 ms-3">
                             <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                             <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
                                 {cart && cart.length}
