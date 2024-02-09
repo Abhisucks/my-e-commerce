@@ -63,10 +63,12 @@ const About = () => {
             </div>
         </section>
 
+        <hr className='mx-5' />
+
         {/* <!-- End Section --> */}
 
 
-        <div className="container mb-5">
+        <div className="container mb-5 mt-3">
             <h3 className="text-center mb-3 h1">Frequently Asked Questions?</h3>
 
             {/* FAQ Section */}
@@ -143,6 +145,7 @@ const About = () => {
             </div>
             {/* End FAQ Section */}
         </div>
+
 
         {/* <!-- Start Brands --> */}
         <section class="bg-light py-5">
