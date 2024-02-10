@@ -5,6 +5,20 @@ const Footer = () => {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+    // Import necessary dependencies if not already imported
+    // import { Link } from 'react-router-dom';
+
+    function scrollToFAQ(e) {
+        e.preventDefault();
+
+        const faqSection = document.getElementById('faq-section');
+
+        if (faqSection) {
+            faqSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
     return <>
         {/* <!-- Start Footer --> */}
         <footer class="bg-dark" id="tempaltemo_footer">
@@ -46,7 +60,8 @@ const Footer = () => {
                             <li><Link to={"/"} onClick={scrollToTop} class="text-decoration-none" >Home</Link></li>
                             <li><Link to={"/shop"} onClick={scrollToTop} class="text-decoration-none" >Shop</Link></li>
                             <li><Link to={"/about"} onClick={scrollToTop} class="text-decoration-none" >About Us</Link></li>
-                            <li><Link to={"/contact"} onClick={scrollToTop} class="text-decoration-none" >Contact</Link></li>
+                            <li><Link to={"/contact"} onClick={scrollToTop} class="text-decoration-none" >Contact Us</Link></li>
+                            <li><Link to={"/about#faq-section"} class="text-decoration-none" >FAQ'S</Link></li>
                         </ul>
                     </div>
 
