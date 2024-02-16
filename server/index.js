@@ -21,6 +21,7 @@ app.use("/api/user", require("./routes/userRoutes"))
 app.use("/api/admin", require("./routes/adminRoutes"))
 app.use("/api/cart", require("./routes/productsRoutes"))
 app.use("/api/orders", require("./routes/orderRoutes"))
+app.use("/api/messages", require("./routes/contactUsRoutes"))
 
 mongoose.connection.once("open", () => {
     console.log("Database Conected");
