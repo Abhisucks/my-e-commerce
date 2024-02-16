@@ -1,8 +1,8 @@
 const asyncHandler = require("express-async-handler")
-const Contact = require("../models/Contact")
+const ContactUs = require("../models/ContactUs")
 
 exports.addMessage = asyncHandler(async (req, res) => {
-    const result = await Contact.create(req.body)
+    const result = await ContactUs.create(req.body)
 
     res.json({
         message: "Message Sumitted Succssefully", result
@@ -10,7 +10,7 @@ exports.addMessage = asyncHandler(async (req, res) => {
 })
 
 exports.getAllMessage = asyncHandler(async (req, res) => {
-    const result = await Contact.find()
+    const result = await ContactUs.find()
 
     res.json({
         message: "Messages Fetch Succssefully", result
@@ -19,7 +19,7 @@ exports.getAllMessage = asyncHandler(async (req, res) => {
 
 exports.getOneMessage = asyncHandler(async (req, res) => {
     const { messageId } = req.params
-    const result = await Contact.findById(messageId)
+    const result = await ContactUs.findById(messageId)
 
     res.json({
         message: "Message Fetch Succssefully", result
@@ -27,7 +27,7 @@ exports.getOneMessage = asyncHandler(async (req, res) => {
 })
 
 exports.destroyMessage = asyncHandler(async (req, res) => {
-    const result = await Contact.deleteMany()
+    const result = await ContactUs.deleteMany()
 
     res.json({
         message: "Messages Destroy Succssefully", result
@@ -36,7 +36,7 @@ exports.destroyMessage = asyncHandler(async (req, res) => {
 
 exports.deleteMessage = asyncHandler(async (req, res) => {
     const { messageId } = req.params
-    const result = await Contact.findByIdAndDelete(messageId)
+    const result = await ContactUs.findByIdAndDelete(messageId)
 
     res.json({
         message: "order Delete Succssefully",
