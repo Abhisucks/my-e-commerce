@@ -1,7 +1,28 @@
 import React from 'react'
 import Footer from '../components/Footer'
+import { useFormik } from 'formik'
+import * as yup from 'yup'
+
 
 const Contact = () => {
+    const formik = useFormik({
+        initialValues: ({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+        }),
+        validationSchema: yup.object({
+            name: yup.string().required(),
+            email: yup.string().required().email(),
+            subject: yup.string().required(),
+            message: yup.string().required(),
+        }),
+        onSubmit: (value, restForm) => {
+            console.log(value);
+            // dispatch(loginUser(value))
+        }
+    })
     return <>
         {/* <!-- Start Content Page --> */}
         <div class="container-fluid bg-light py-5">
@@ -18,24 +39,40 @@ const Contact = () => {
         {/* <!-- Start Contact --> */}
         <div class="container py-5">
             <div class="row py-5">
-                <form class="col-md-9 m-auto" method="post" role="form">
+                <form onSubmit={formik.handleSubmit} class="col-md-9 m-auto" method="post" role="form">
                     <div class="row" >
                         <div class="form-group col-md-6 mb-3">
                             <label for="inputname">Name</label>
-                            <input type="text" class="form-control mt-1 " id="name" name="name" placeholder="Name" />
+                            <input
+                                {...formik.getFieldProps("name")}
+                                type="text"
+                                class={`form-control mt-1 ${formik.touched.name && (formik.errors.name ? "is-invalid" : "is-valid")}`}
+                                id="name" name="name" placeholder="Name" />
                         </div>
                         <div class="form-group col-md-6 mb-3">
                             <label for="inputemail">Email</label>
-                            <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email" />
+                            <input
+                                {...formik.getFieldProps("email")}
+                                type="email"
+                                class={`form-control mt-1 ${formik.touched.email && (formik.errors.email ? "is-invalid" : "is-valid")}`}
+                                id="email" name="email" placeholder="Email" />
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="inputsubject">Subject</label>
-                        <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Subject" />
+                        <input
+                            {...formik.getFieldProps("subject")}
+                            type="text"
+                            class={`form-control mt-1 ${formik.touched.subject && (formik.errors.subject ? "is-invalid" : "is-valid")}`}
+                            id="subject" name="subject" placeholder="subject" />
+
                     </div>
                     <div class="mb-3">
                         <label for="inputmessage">Message</label>
-                        <textarea class="form-control mt-1" id="message" name="message" placeholder="Message" rows="8"></textarea>
+                        <textarea
+                            {...formik.getFieldProps("message")}
+                            class={`form-control mt-1 ${formik.touched.message && (formik.errors.message ? "is-invalid" : "is-valid")}`}
+                            id="message" name="message" placeholder="Message" rows="8"></textarea>
                     </div>
                     <div class="row">
                         <div class="col text-end mt-2">
