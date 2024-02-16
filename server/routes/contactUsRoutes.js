@@ -1,4 +1,4 @@
-const { addMessage, getAllMessage, getOneMessage } = require("../controllers/contactUsController")
+const { addMessage, getAllMessage, getOneMessage, destroyMessage, deleteMessage } = require("../controllers/contactUsController")
 
 const router = require("express").Router()
 
@@ -6,7 +6,7 @@ router
     .get("/", getAllMessage)
     .post("/add", addMessage)
     .get("/:messageId", getOneMessage)
-// .delete("/destroy", destroyProduct)
-// .delete("/delete/:productId", deleteProduct)
+    .delete("/destroy", destroyMessage)
+    .delete("/delete/:messageId", deleteMessage)
 
 module.exports = router    

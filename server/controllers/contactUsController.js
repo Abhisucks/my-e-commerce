@@ -34,7 +34,7 @@ exports.destroyMessage = asyncHandler(async (req, res) => {
     })
 })
 
-exports.deleteProduct = asyncHandler(async (req, res) => {
+exports.deleteMessage = asyncHandler(async (req, res) => {
     const { MessageId } = req.params
     const result = await Admin.findByIdAndDelete(MessageId)
 
