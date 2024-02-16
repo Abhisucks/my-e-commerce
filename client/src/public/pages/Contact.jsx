@@ -2,9 +2,12 @@ import React from 'react'
 import Footer from '../components/Footer'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
+import { useDispatch } from 'react-redux'
+import { addUserMessage } from '../../redux/actions/publicActions'
 
 
 const Contact = () => {
+    const dispatch = useDispatch()
     const formik = useFormik({
         initialValues: ({
             name: "",
@@ -20,7 +23,8 @@ const Contact = () => {
         }),
         onSubmit: (value, restForm) => {
             console.log(value);
-            // dispatch(loginUser(value))
+            dispatch(addUserMessage(value))
+            restForm()
         }
     })
     return <>
