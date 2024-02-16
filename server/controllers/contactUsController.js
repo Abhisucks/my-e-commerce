@@ -13,15 +13,32 @@ exports.getAllMessage = asyncHandler(async (req, res) => {
     const result = await Contact.find()
 
     res.json({
-        message: "Message Sumitted Succssefully", result
+        message: "Messages Fetch Succssefully", result
     })
 })
 
 exports.getOneMessage = asyncHandler(async (req, res) => {
     const { messageId } = req.params
-    const product = await Contact.findById(messageId)
+    const message = await Contact.findById(messageId)
 
     res.json({
-        message: "Product Fetch Succssefully", product
+        message: "Message Fetch Succssefully", message
+    })
+})
+
+exports.destroyMessage = asyncHandler(async (req, res) => {
+    const result = await Contact.deleteMany()
+
+    res.json({
+        message: "Messages Destroy Succssefully", result
+    })
+})
+
+exports.deleteProduct = asyncHandler(async (req, res) => {
+    const { MessageId } = req.params
+    const result = await Admin.findByIdAndDelete(MessageId)
+
+    res.json({
+        message: "Message Delete Succssefully", result
     })
 })
