@@ -8,6 +8,15 @@ exports.addMessage = asyncHandler(async (req, res) => {
         message: "Message Sumitted Succssefully", result
     })
 })
+
+exports.getAllMessage = asyncHandler(async (req, res) => {
+    const result = await Contact.find()
+
+    res.json({
+        message: "Message Sumitted Succssefully", result
+    })
+})
+
 exports.getAllMessage = asyncHandler(async (req, res) => {
     const result = await Contact.find()
 
