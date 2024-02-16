@@ -17,10 +17,11 @@ exports.getAllMessage = asyncHandler(async (req, res) => {
     })
 })
 
-exports.getAllMessage = asyncHandler(async (req, res) => {
-    const result = await Contact.find()
+exports.getOneMessage = asyncHandler(async (req, res) => {
+    const { messageId } = req.params
+    const product = await Contact.findById(messageId)
 
     res.json({
-        message: "Message Sumitted Succssefully", result
+        message: "Product Fetch Succssefully", product
     })
 })
