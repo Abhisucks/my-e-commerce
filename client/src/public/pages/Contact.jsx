@@ -29,8 +29,7 @@ const Contact = () => {
             <div class="col-md-6 m-auto text-center">
                 <h1 class="h1">Contact Us</h1>
                 <p>
-                    Proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet.
+                    Have questions or need to report an issue with a Our product or service? We've got you covered.
                 </p>
             </div>
         </div>
