@@ -22,6 +22,7 @@ import MyOrders from './public/components/MyOrders'
 import Users from './admin/pages/Users'
 import Dashboard from './admin/pages/Dashboard'
 import PageNotFound from './public/pages/PageNotFound'
+import Messages from './admin/pages/Messages'
 
 const App = () => {
   return <>
@@ -48,6 +49,7 @@ const App = () => {
           <Route index element={<Dashboard />} />
           <Route path='users' element={<Users />} />
           <Route path='add-pro' element={<AddProduct />} />
+          <Route path='messages' element={<Messages />} />
         </Route>
 
         {/* <Route path="*" element={<PageNotFound />} /> */}
