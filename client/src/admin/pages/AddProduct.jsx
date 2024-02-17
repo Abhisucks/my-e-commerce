@@ -198,7 +198,7 @@ const AddProduct = () => {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger" onClick={e => handleDelete(proId)}>Yes</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onClick={e => handleDelete(proId)}>Yes</button>
                     </div>
                 </div>
             </div>
@@ -258,7 +258,7 @@ const AddProduct = () => {
                                 type="text" className='form-control mt-1' />
                         </div>
 
-                        <button onClick={handleEditProduct} type="button" class="btn btn-primary w-100 mt-4">Save</button>
+                        <button onClick={handleEditProduct} type="button" data-bs-dismiss="modal" class="btn btn-primary w-100 mt-4">Save</button>
 
                     </div>
                 </div>
