@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Footer from '../components/Footer'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addUserMessage } from '../../redux/actions/publicActions'
+import { invalidate } from '../../redux/slice/publicSlice'
+import { toast } from 'react-toastify'
+import Loader from '../components/Loader'
 
 
 const Contact = () => {
     const dispatch = useDispatch()
+    const { loading, error, messageAdded } = useSelector(state => state.public)
+
     const formik = useFormik({
         initialValues: ({
             name: "",
@@ -21,12 +26,30 @@ const Contact = () => {
             subject: yup.string().required(),
             message: yup.string().required(),
         }),
-        onSubmit: (value, restForm) => {
+        onSubmit: (value, resetForm) => {
             console.log(value);
             dispatch(addUserMessage(value))
-            restForm()
+            resetForm()
         }
     })
+
+    useEffect(() => {
+
+        if (error) {
+            toast.error(error)
+            dispatch(invalidate(["error"]))
+        }
+        if (messageAdded) {
+            toast.success("Message Sent Successfully")
+            dispatch(invalidate(["messageAdded"]))
+        }
+    }, [messageAdded, error])
+
+    if (loading) {
+        return <Loader />
+    }
+
+
     return <>
         {/* <!-- Start Content Page --> */}
         <div class="container-fluid bg-light py-5">
