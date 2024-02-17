@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteOneOrder, getAllOrders } from '../../redux/actions/orderActions'
 import { getAllUsers } from '../../redux/actions/publicActions'
@@ -11,8 +11,9 @@ const Dashboard = () => {
     const { orders, orderDeleted, error: orderError, loading: orderLoading } = useSelector(state => state.order)
     const { users } = useSelector(state => state.public)
     const { allProducts } = useSelector(state => state.admin)
-
     const dispatch = useDispatch()
+
+    const [proId, setproId] = useState()
 
     useEffect(() => {
         dispatch(getAllOrders())
@@ -111,14 +112,35 @@ const Dashboard = () => {
                         <td>{item.userId}</td>
                         <td>{item.paymentId}</td>
                         <td>
-                            <button type="button" onClick={e => handleDeleteOrder(item._id)}
-                                class="btn btn-outline-danger">Delete</button>
+                            <button type="button" class="btn btn-outline-danger mx-2" data-bs-toggle="modal"
+                                data-bs-target="#deleteexampleModal" onClick={e => setproId(item._id)}>Delete</button>
                         </td>
 
                     </tr>)
                 }
             </tbody>
         </table>
+
+        {/* delete modal start */}
+
+        <div class="modal fade" id="deleteexampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Are You Sure?</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onClick={e => handleDeleteOrder(proId)}>Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {/* delete modal end */}
     </>
 
     if (orderLoading) {
@@ -135,6 +157,7 @@ const Dashboard = () => {
             </div>
 
         </div>
+
     </>
 }
 
