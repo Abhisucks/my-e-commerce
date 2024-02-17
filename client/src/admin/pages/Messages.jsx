@@ -11,7 +11,7 @@ const Messages = () => {
     }, [])
 
     const content = <>
-        <table class="table table-dark table-striped table-hover mt-5">
+        <table class="table table-dark table-striped table-hover mt-3">
             <thead>
                 <tr>
                     <th scope="col">#</th>
