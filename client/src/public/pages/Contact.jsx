@@ -27,9 +27,7 @@ const Contact = () => {
             message: yup.string().required(),
         }),
         onSubmit: (value, resetForm) => {
-            console.log(value);
             dispatch(addUserMessage(value))
-            resetForm()
         }
     })
 
