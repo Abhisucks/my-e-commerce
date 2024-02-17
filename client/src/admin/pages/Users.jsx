@@ -18,7 +18,7 @@ const Users = () => {
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Id</th>
-                    {/* <th scope="col">Action</th> */}
+                    <th scope="col">Actions</th>
 
                 </tr>
             </thead>
@@ -31,9 +31,9 @@ const Users = () => {
                         </td>
                         <td>{item.email}</td>
                         <td>{item._id}</td>
-                        {/* <td>
-                            <button type="button" class="btn btn-outline-danger mx-2" >Delete</button>
-                        </td> */}
+                        <td>
+                            <button type="button" class="btn btn-outline-danger" >Delete</button>
+                        </td>
                     </tr>)
                 }
             </tbody>
