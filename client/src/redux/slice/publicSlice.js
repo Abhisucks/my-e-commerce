@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { CheckOutway, addUserMessage, getAllUsers, getUserMessage, loginUser, logoutUser, registerUser } from "../actions/publicActions";
+import { CheckOutway, addUserMessage, deleteUserMessage, getAllUsers, getUserMessage, loginUser, logoutUser, registerUser } from "../actions/publicActions";
 import { toast } from 'react-toastify'
 
 
@@ -228,6 +228,18 @@ const publicSlice = createSlice({
             state.messages = payload
         })
         .addCase(getUserMessage.rejected, (state, { payload }) => {
+            state.loading = false
+            state.error = payload
+        })
+
+        .addCase(deleteUserMessage.pending, (state, { payload }) => {
+            state.loading = true
+        })
+        .addCase(deleteUserMessage.fulfilled, (state, { payload }) => {
+            state.loading = false
+            state.messageDeleted = payload
+        })
+        .addCase(deleteUserMessage.rejected, (state, { payload }) => {
             state.loading = false
             state.error = payload
         })

@@ -96,6 +96,15 @@ export const getUserMessage = createAsyncThunk("user/get/message", async (userDa
     }
 })
 
+export const deleteUserMessage = createAsyncThunk("user/delete/message", async (msgId, { rejectWithValue, getState }) => {
+    try {
+        const { data } = await api.delete(`messages/delete/${msgId}`)
+        return true
+    } catch (error) {
+        return rejectWithValue(error.response.data.message || error.message || "something went wrong")
+    }
+})
+
 
 
 
