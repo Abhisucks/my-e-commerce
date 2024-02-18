@@ -11,7 +11,6 @@ const Messages = () => {
 
     useEffect(() => {
         dispatch(getUserMessage())
-
         if (messageDeleted) {
             toast.success("Message Deleted Successfully")
             dispatch(invalidate(["messageDeleted"]))
