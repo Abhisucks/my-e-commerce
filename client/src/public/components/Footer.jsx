@@ -6,9 +6,6 @@ const Footer = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    // Import necessary dependencies if not already imported
-    // import { Link } from 'react-router-dom';
-
     function scrollToFAQ(e) {
         e.preventDefault();
 
