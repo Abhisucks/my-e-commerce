@@ -5,7 +5,6 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Loader from '../components/Loader'
 import Error from '../components/Error'
-import { invalidate } from '../../redux/slice/adminSlice'
 
 
 const Shop = () => {
