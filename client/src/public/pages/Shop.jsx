@@ -13,7 +13,7 @@ const Shop = () => {
 
     const [productcate, setProductCate] = useState("all products")
     const [priceRange, setPriceRange] = useState("all prices")
-    const [perPage, setPerPage] = useState(6); // Adjust the number of items per page as needed
+    const [perPage, setPerPage] = useState(9); // Adjust the number of items per page as needed
     const [currentPage, setCurrentPage] = useState(1);
 
     const { allProducts, loading: productLoading, error: productError } = useSelector(state => state.admin)
