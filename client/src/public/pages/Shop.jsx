@@ -13,6 +13,9 @@ const Shop = () => {
 
     const [productcate, setProductCate] = useState("all products")
     const [priceRange, setPriceRange] = useState("all prices")
+    const [perPage, setPerPage] = useState(6); // Adjust the number of items per page as needed
+    const [currentPage, setCurrentPage] = useState(1);
+
     const { allProducts, loading: productLoading, error: productError } = useSelector(state => state.admin)
     useEffect(() => {
         dispatch(getAllProduct())
@@ -41,6 +44,10 @@ const Shop = () => {
             (productcate === "all products" || item.category === productcate) &&
             filterByPrice(item)
     );
+
+    const indexOfLastItem = currentPage * perPage;
+    const indexOfFirstItem = indexOfLastItem - perPage;
+    const currentItems = result && result.slice(indexOfFirstItem, indexOfLastItem);
 
     if (productLoading) {
         return <Loader />
@@ -85,7 +92,7 @@ const Shop = () => {
 
             <div className="row m-3">
                 {
-                    result && result.map((item, i) => <div class="col-md-4" onClick={e => addcart(item)} key={item._id}>
+                    currentItems && currentItems.map((item, i) => <div class="col-md-4" onClick={e => addcart(item)} key={item._id}>
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
                                 <img class="card-img rounded-0 img-fluid" src={item.img} />
@@ -114,11 +121,29 @@ const Shop = () => {
                         </div>
                     </div>)
                 }
+            </div >
 
+
+            <div className="pagination justify-content-center">
+                <ul className="pagination">
+                    <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+                        <button className="page-link" onClick={() => setCurrentPage(currentPage - 1)}>
+                            <i class="bi bi-caret-left-fill"></i>
+                        </button>
+                    </li>
+                    <li className="page-item">
+                        <span className="page-link">{currentPage}</span>
+                    </li>
+                    <li className={`page-item ${currentPage === Math.ceil(result.length / perPage) ? 'disabled' : ''}`}>
+                        <button className="page-link" onClick={() => setCurrentPage(currentPage + 1)}>
+                            <i class="bi bi-caret-right-fill"></i>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div >
 
-        {<Footer />}
+        {< Footer />}
     </>
 }
 
