@@ -80,8 +80,7 @@ const About = () => {
                     <div class="col-lg-6 m-auto">
                         <h1 class="h1">Our Brands</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            Lorem ipsum dolor sit amet.
+                            Discover the essence of quality and innovation as we bring you a curated selection of brands that redefine excellence in every product.
                         </p>
                     </div>
                     <div class="col-lg-9 m-auto tempaltemo-carousel">

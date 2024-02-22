@@ -41,14 +41,14 @@ const Home = () => {
                     <div class="container">
                         <div class="row p-5">
                             <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                                <img class="img-fluid" src="https://img.freepik.com/free-photo/flat-lay-wooden-spoons-with-variety-spices_23-2148601126.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="" />
+                                <img class="img-fluid" src="https://img.freepik.com/premium-photo/group-tropical-fresh-fruits-vegetables-isolated-white-background_3236-1468.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="" />
                             </div>
                             <div class="col-lg-6 mb-0 d-flex align-items-center">
                                 <div class="text-align-left">
-                                    <h1 class="h1">Elevate Your Tastes</h1>
-                                    <h3 class="h2">Indulge in Exquisite Culinary Delights</h3>
+                                    <h1 class="h1">Savor Pure Bliss</h1>
+                                    <h3 class="h2">Crafting Flavorful Experiences</h3>
                                     <p>
-                                        Immerse yourself in farm-to-table excellence! From the richness of Dairy and Eggs to the freshness of Fruits, Vegetables, and Produce – elevate your culinary journey with our organic treasures.
+                                        Celebrate nature's bounty on your plate! Immerse yourself in the wholesome goodness of organic Dairy, Eggs, Fruits, Vegetables, and Produce for a delightful and nutritious feast.
                                     </p>
 
                                 </div>
@@ -60,14 +60,14 @@ const Home = () => {
                     <div class="container">
                         <div class="row p-5">
                             <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                                <img class="img-fluid" src="https://img.freepik.com/premium-photo/group-tropical-fresh-fruits-vegetables-isolated-white-background_3236-1468.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="" />
+                                <img class="img-fluid" src="https://img.freepik.com/free-photo/flat-lay-wooden-spoons-with-variety-spices_23-2148601126.jpg?size=626&ext=jpg&ga=GA1.1.499869514.1706805800&semt=ais" alt="" />
                             </div>
                             <div class="col-lg-6 mb-0 d-flex align-items-center">
                                 <div class="text-align-left">
-                                    <h1 class="h1">Savor Pure Bliss</h1>
-                                    <h3 class="h2">Crafting Flavorful Experiences</h3>
+                                    <h1 class="h1">Elevate Your Tastes</h1>
+                                    <h3 class="h2">Indulge in Exquisite Culinary Delights</h3>
                                     <p>
-                                        Celebrate nature's bounty on your plate! Immerse yourself in the wholesome goodness of organic Dairy, Eggs, Fruits, Vegetables, and Produce for a delightful and nutritious feast.
+                                        Immerse yourself in farm-to-table excellence! From the richness of Dairy and Eggs to the freshness of Fruits, Vegetables, and Produce – elevate your culinary journey with our organic treasures.
                                     </p>
 
                                 </div>
@@ -140,21 +140,21 @@ const Home = () => {
                             </a>
                             <div class="card-body">
                                 <ul class="list-unstyled d-flex justify-content-between">
-                                    <li>
+                                    {/* <li>
                                         <i class="text-warning fa fa-star"></i>
                                         <i class="text-warning fa fa-star"></i>
                                         <i class="text-warning fa fa-star"></i>
                                         <i class="text-muted fa fa-star"></i>
                                         <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                    <li class="text-muted text-right">$240.00</li>
+                                    </li> */}
+                                    <li class="text-muted text-right">₹240.00</li>
                                 </ul>
                                 <a href="shop-single.html" class="h2 text-decoration-none text-dark">Gym Weight</a>
                                 <p class="card-text">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia
                                     deserunt.
                                 </p>
-                                <p class="text-muted">Reviews (24)</p>
+                                <p class="text-muted">See More</p>
                             </div>
                         </div>
                     </div>
