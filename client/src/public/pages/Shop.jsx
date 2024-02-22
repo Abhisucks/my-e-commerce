@@ -49,6 +49,18 @@ const Shop = () => {
     const indexOfFirstItem = indexOfLastItem - perPage;
     const currentItems = result && result.slice(indexOfFirstItem, indexOfLastItem);
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
+    const setCurrentPageWithScroll = (newPage) => {
+        setCurrentPage(newPage);
+        scrollToTop();
+    };
+
     if (productLoading) {
         return <Loader />
     }
@@ -125,22 +137,25 @@ const Shop = () => {
 
 
             <div className="pagination justify-content-center">
-                <ul className="pagination">
-                    <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-                        <button className="page-link" onClick={() => setCurrentPage(currentPage - 1)}>
-                            <i class="bi bi-caret-left-fill"></i>
-                        </button>
-                    </li>
-                    <li className="page-item">
-                        <span className="page-link">{currentPage}</span>
-                    </li>
-                    <li className={`page-item ${currentPage === Math.ceil(result.length / perPage) ? 'disabled' : ''}`}>
-                        <button className="page-link" onClick={() => setCurrentPage(currentPage + 1)}>
-                            <i class="bi bi-caret-right-fill"></i>
-                        </button>
-                    </li>
-                </ul>
+                {result && result.length > perPage && (
+                    <ul className="pagination">
+                        <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+                            <button className="page-link" onClick={() => setCurrentPageWithScroll(currentPage - 1)}>
+                                <i className="bi bi-caret-left-fill"></i>
+                            </button>
+                        </li>
+                        <li className="page-item">
+                            <span className="page-link">{currentPage}</span>
+                        </li>
+                        <li className={`page-item ${currentPage === Math.ceil(result.length / perPage) ? 'disabled' : ''}`}>
+                            <button className="page-link" onClick={() => setCurrentPageWithScroll(currentPage + 1)}>
+                                <i className="bi bi-caret-right-fill"></i>
+                            </button>
+                        </li>
+                    </ul>
+                )}
             </div>
+
         </div >
 
         {< Footer />}
