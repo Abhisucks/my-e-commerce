@@ -25,6 +25,10 @@ const adminSchema = mongoose.Schema({
         type: Number,
         require: [true, "Count is required"]
     },
+    featured: {
+        type: Boolean,
+        default: false
+    },
 
 }, { timestamps: true })
 

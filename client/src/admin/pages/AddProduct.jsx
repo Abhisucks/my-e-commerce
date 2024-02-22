@@ -258,6 +258,15 @@ const AddProduct = () => {
                                 type="text" className='form-control mt-1' />
                         </div>
 
+                        <div class='mt-2'>
+                            <label htmlFor='flexSwitchCheckDefault'>Featured</label>
+                            <div class='form-check form-switch'>
+                                <input class='form-check-input' type='checkbox' role='switch' id='flexSwitchCheckDefault' checked={selectedPro.featured}
+                                    onChange={() => setselectedPro({ ...selectedPro, featured: !selectedPro.featured })} />
+                                <label class='form-check-label' htmlFor='flexSwitchCheckDefault'>Make Product Featured </label>
+                            </div>
+                        </div>
+
                         <button onClick={handleEditProduct} type="button" data-bs-dismiss="modal" class="btn btn-primary w-100 mt-4">Save</button>
 
                     </div>
