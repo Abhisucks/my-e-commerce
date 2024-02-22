@@ -180,7 +180,7 @@ const AddProduct = () => {
                             <option value="vegitable">Vegitable</option>
                             <option value="FreshProduce">Fresh Produce</option>
                             <option value="Dairy and Eggs">Dairy and Eggs</option>
-                            <option value="Food">Food</option>
+                            <option value="spices">Spices</option>
                         </select>
 
                         <div className='mt-2'>
@@ -262,7 +262,7 @@ const AddProduct = () => {
                             <option value="vegitable">Vegitable</option>
                             <option value="FreshProduce">Fresh Produce</option>
                             <option value="Dairy and Eggs">Dairy and Eggs</option>
-                            <option value="Food">Food</option>
+                            <option value="spices">Spices</option>
                         </select>
 
                         <div className='mt-2'>
