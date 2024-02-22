@@ -21,7 +21,7 @@ const Shop = () => {
         dispatch(getAllProduct())
     }, [])
 
-    const addcart = (item) => {
+    const goToShopSingle = (item) => {
         // dispatch(adminGetProduct(), item)
         navigate("/ShopSingle", { state: { item: item } })
     }
@@ -104,7 +104,7 @@ const Shop = () => {
 
             <div className="row m-3">
                 {
-                    currentItems && currentItems.map((item, i) => <div class="col-md-4" onClick={e => addcart(item)} key={item._id}>
+                    currentItems && currentItems.map((item, i) => <div class="col-md-4" onClick={e => goToShopSingle(item)} key={item._id}>
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
                                 <img class="card-img rounded-0 img-fluid" src={item.img} />
