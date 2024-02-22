@@ -36,7 +36,7 @@ const FeaturedPro = () => {
                 <div className="row">
                     {featuredProducts && featuredProducts.map(product => (
                         <div key={product._id} className="col-12 col-md-4 mb-4" onClick={e => goToShopSingle(product)}>
-                            <div className="card h-100">
+                            <div className="card h-100" style={{ cursor: 'pointer' }} >
                                 <a>
                                     <img src={product.img} className="card-img-top" alt="..." />
                                 </a>
