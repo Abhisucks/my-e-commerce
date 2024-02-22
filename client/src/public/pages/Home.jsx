@@ -27,10 +27,10 @@ const Home = () => {
                             </div>
                             <div class="col-lg-6 mb-0 d-flex align-items-center">
                                 <div class="text-align-left align-self-center">
-                                    <h1 class="h1 text-success"><b>My</b> eCommerce</h1>
-                                    <h3 class="h2">Nice and Perfect eCommerce Shop</h3>
+                                    <h1 class="h1 text-success"><b>Eco</b>Harves</h1>
+                                    <h3 class="h2">Discover Excellence in Every Bite</h3>
                                     <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium maxime inventore dignissimos iste quae hic itaque illum ducimus voluptate nisi!
+                                        Nourish your senses with the finest organic harvest! Dive into a world of freshness with our farm-to-table products – Fruits, Vegetables, and Fresh Produce.
                                     </p>
                                 </div>
                             </div>
@@ -45,11 +45,12 @@ const Home = () => {
                             </div>
                             <div class="col-lg-6 mb-0 d-flex align-items-center">
                                 <div class="text-align-left">
-                                    <h1 class="h1">Proident occaecat</h1>
-                                    <h3 class="h2">Aliquip ex ea commodo consequat</h3>
+                                    <h1 class="h1">Elevate Your Tastes</h1>
+                                    <h3 class="h2">Indulge in Exquisite Culinary Delights</h3>
                                     <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil officia voluptate et facere dolorem doloribus consectetur eum excepturi debitis voluptatibus, possimus alias.
+                                        Immerse yourself in farm-to-table excellence! From the richness of Dairy and Eggs to the freshness of Fruits, Vegetables, and Produce – elevate your culinary journey with our organic treasures.
                                     </p>
+
                                 </div>
                             </div>
                         </div>
@@ -63,11 +64,12 @@ const Home = () => {
                             </div>
                             <div class="col-lg-6 mb-0 d-flex align-items-center">
                                 <div class="text-align-left">
-                                    <h1 class="h1">Repr in voluptate</h1>
-                                    <h3 class="h2">Ullamco laboris nisi ut </h3>
+                                    <h1 class="h1">Savor Pure Bliss</h1>
+                                    <h3 class="h2">Crafting Flavorful Experiences</h3>
                                     <p>
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum placeat temporibus atque tempora illo, voluptatem a alias facilis porro officiis nostrum quibusdam!
+                                        Celebrate nature's bounty on your plate! Immerse yourself in the wholesome goodness of organic Dairy, Eggs, Fruits, Vegetables, and Produce for a delightful and nutritious feast.
                                     </p>
+
                                 </div>
                             </div>
                         </div>
@@ -91,10 +93,9 @@ const Home = () => {
         <section class="container py-5">
             <div class="row text-center pt-3">
                 <div class="col-lg-6 m-auto">
-                    <h1 class="h1">Categories of The Month</h1>
+                    <h1 class="h1">Popular Categories</h1>
                     <p>
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit anim id est laborum.
+                        Crafted with care and dedication, bringing you a curated selection that reflects our commitment to excellence.
                     </p>
                 </div>
             </div>
