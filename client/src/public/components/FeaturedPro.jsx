@@ -26,11 +26,11 @@ const FeaturedPro = () => {
             <div className="container py-5">
                 <div className="row text-center py-3">
                     <div className="col-lg-6 m-auto">
-                        <h1 className="h1">Featured Product</h1>
+                        <h1 className="h1">Featured Products</h1>
                         <p>
-                            Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident.
+                            Each item is crafted with care, delivering an unparalleled experience of taste and freshness.
                         </p>
+
                     </div>
                 </div>
                 <div className="row">
