@@ -77,6 +77,7 @@ const AddProduct = () => {
                     <th scope="col">Category</th>
                     <th scope="col">Price</th>
                     <th scope="col">Stock</th>
+                    <th scope="col">Featured</th>
                     <th scope="col">Actions</th>
 
                 </tr>
@@ -92,6 +93,44 @@ const AddProduct = () => {
                         <td>{item.category}</td>
                         <td>{item.price}</td>
                         <td className={item.count <= 20 ? 'text-danger' : ''}>{item.count}</td>
+
+                        <td>
+                            {item.featured ? (
+                                <div class="form-check form-switch">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        role="switch"
+                                        id={`flexSwitchCheckCheckedDisabled_${i}`}
+                                        checked
+                                        disabled
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for={`flexSwitchCheckCheckedDisabled_${i}`}
+                                    >
+                                        Featured
+                                    </label>
+                                </div>
+                            ) : (
+                                <div class="form-check form-switch">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        role="switch"
+                                        id={`flexSwitchCheckDisabled_${i}`}
+                                        disabled
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for={`flexSwitchCheckDisabled_${i}`}
+                                    >
+                                        Not Featured
+                                    </label>
+                                </div>
+                            )}
+                        </td>
+
                         <td>
                             <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editexampleModal" onClick={e => setselectedPro(item)}>Edit</button>
                             <button type="button" class="btn btn-outline-danger mx-2" data-bs-toggle="modal" data-bs-target="#deleteexampleModal" onClick={e => setproId(item._id)}>Delete</button>
@@ -258,12 +297,15 @@ const AddProduct = () => {
                                 type="text" className='form-control mt-1' />
                         </div>
 
-                        <div class='mt-2'>
+                        <div class='mt-3'>
                             <label htmlFor='flexSwitchCheckDefault'>Featured</label>
                             <div class='form-check form-switch'>
                                 <input class='form-check-input' type='checkbox' role='switch' id='flexSwitchCheckDefault' checked={selectedPro.featured}
                                     onChange={() => setselectedPro({ ...selectedPro, featured: !selectedPro.featured })} />
-                                <label class='form-check-label' htmlFor='flexSwitchCheckDefault'>Make Product Featured </label>
+                                {selectedPro.featured
+                                    ? <label class='form-check-label' htmlFor='flexSwitchCheckDefault'>Remove Product Featured</label>
+                                    : <label class='form-check-label' htmlFor='flexSwitchCheckDefault'>Make Product Featured </label>
+                                }
                             </div>
                         </div>
 
