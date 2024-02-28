@@ -15,7 +15,6 @@ const FeaturedPro = () => {
 
     // Filter only the featured products
     const featuredProducts = allProducts && allProducts.filter(product => product.featured);
-    console.log(featuredProducts);
 
     const goToShopSingle = (item) => {
         navigate("/ShopSingle", { state: { item: item } })
@@ -52,7 +51,7 @@ const FeaturedPro = () => {
                                         </li>
                                         <li className="text-muted text-right">{`₹${product.price.toFixed(2)}`}</li>
                                     </ul>
-                                    <a href="shop-single.html" className="h2 text-decoration-none text-dark">{product.title}</a>
+                                    <p className="h2 text-decoration-none text-dark">{product.title}</p>
                                     <p className="card-text">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga perferendi
                                     </p>

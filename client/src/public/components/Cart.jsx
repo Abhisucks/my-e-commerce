@@ -38,12 +38,12 @@ const Cart = () => {
                                 {
                                     cart && cart.map((item, i) =>
                                         <div class="row mt-1 mb-1">
-                                            <div class="col-lg-3 col-3 img-fluid">
-                                                <img width="100%"
+                                            <div class="col-lg-3 col-6 img-fluid">
+                                                <img className=' img-fluid' width="100%"
                                                     src={`${item.img}`}
                                                     alt="" />
                                             </div>
-                                            <div class="col-lg-3 mt-3 col-9 position-relative">
+                                            <div class="col-lg-3 mt-3 col-6 position-relative">
                                                 <h5>{item.title}</h5>
                                                 <p>₹{item.price}</p>
 

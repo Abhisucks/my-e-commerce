@@ -77,7 +77,7 @@ const Shop = () => {
     return <>
         <div className="container">
             <div className='d-flex'>
-                <div className='w-25 m-3'>
+                <div className='w-auto m-3'>
                     <label htmlFor="" >Categerogy</label>
                     <select value={productcate}
                         className="form-select  mt-2 mb-3" onChange={e => setProductCate(e.target.value)}>
@@ -89,7 +89,7 @@ const Shop = () => {
                         <option value="spices">Spices</option>
                     </select>
                 </div>
-                <div className='w-25 m-3'>
+                <div className='w-auto m-3'>
                     <label htmlFor="" >Price Range</label>
                     <select value={priceRange}
                         className="form-select  mt-2 mb-3" onChange={e => setPriceRange(e.target.value)}>
@@ -102,7 +102,7 @@ const Shop = () => {
                 </div>
             </div>
 
-            <div className="row m-3">
+            <div className="row m-md-3 m-1">
                 {
                     currentItems && currentItems.map((item, i) => <div class="col-md-4" onClick={e => goToShopSingle(item)} key={item._id}>
                         <div class="card mb-4 product-wap rounded-0">
@@ -117,14 +117,14 @@ const Shop = () => {
                                 </div>
                             </div>
                             <div class="card-body">
-                                <h6 class="h3 text-decoration-none">{item.title}</h6>
+                                <h6 class=" text-decoration-none text-center">{item.title}</h6>
 
                                 <ul class="list-unstyled d-flex justify-content-center mb-1">
                                     <li>
                                         <i class="text-warning fa fa-star"></i>
                                         <i class="text-warning fa fa-star"></i>
                                         <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
                                         <i class="text-muted fa fa-star"></i>
                                     </li>
                                 </ul>

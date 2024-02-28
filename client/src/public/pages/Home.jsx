@@ -47,7 +47,7 @@ const Home = () => {
                             <div class="col-lg-6 mb-0 d-flex align-items-center">
                                 <div class="text-align-left">
                                     <h1 class="h1">Savor Pure Bliss</h1>
-                                    <h3 class="h2">Crafting Flavorful Experiences</h3>
+                                    <h3 class="h2 d-none d-lg-block">Crafting Flavorful Experiences</h3>
                                     <p>
                                         Celebrate nature's bounty on your plate! Immerse yourself in the wholesome goodness of organic Dairy, Eggs, Fruits, Vegetables, and Produce for a delightful and nutritious feast.
                                     </p>
@@ -66,7 +66,7 @@ const Home = () => {
                             <div class="col-lg-6 mb-0 d-flex align-items-center">
                                 <div class="text-align-left">
                                     <h1 class="h1">Elevate Your Tastes</h1>
-                                    <h3 class="h2">Indulge in Exquisite Culinary Delights</h3>
+                                    <h3 class="h2 d-none d-lg-block">Indulge in Exquisite Culinary Delights</h3>
                                     <p>
                                         Immerse yourself in farm-to-table excellence! From the richness of Dairy and Eggs to the freshness of Fruits, Vegetables, and Produce – elevate your culinary journey with our organic treasures.
                                     </p>
@@ -101,19 +101,19 @@ const Home = () => {
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-4 p-5 mt-3">
+                <div class="col-12 col-md-4 px-5 py-0 p-lg-5 mt-3">
                     <Link to={"/shop"} onClick={scrollToTop} ><img src="https://images.unsplash.com/photo-1587411768515-eeac0647deed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHZlZ2V0YWJsZXxlbnwwfHwwfHx8MA%3D%3D" class="rounded-circle img-fluid border" /></Link>
-                    <h5 class="text-center mt-3 mb-3">Vegitables</h5>
+                    <p class="text-center mt-3 mb-3 h2 fw-lighter">Vegitables</p>
                     <p class="text-center"><Link to={"/shop"} onClick={scrollToTop} class="btn btn-success">Go Shop</Link></p>
                 </div>
-                <div class="col-12 col-md-4 p-5 mt-3">
+                <div class="col-12 col-md-4 px-5 py-0 p-lg-5 mt-3">
                     <Link to={"/shop"} onClick={scrollToTop} ><img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHNwaWNlc3xlbnwwfHwwfHx8MA%3D%3D" class="rounded-circle img-fluid border" /></Link>
-                    <h2 class="h5 text-center mt-3 mb-3">Spices</h2>
+                    <p class="text-center mt-3 mb-3 h2 fw-lighter">Spices</p>
                     <p class="text-center"><Link to={"/shop"} onClick={scrollToTop} class="btn btn-success">Go Shop</Link ></p>
                 </div>
-                <div class="col-12 col-md-4 p-5 mt-3">
+                <div class="col-12 col-md-4 px-5 py-0 p-lg-5 mt-3">
                     <Link to={"/shop"} onClick={scrollToTop} ><img src="https://images.unsplash.com/photo-1587486913049-53fc88980cfc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZWdnc3xlbnwwfHwwfHx8MA%3D%3D" class="rounded-circle img-fluid border" /></Link>
-                    <h2 class="h5 text-center mt-3 mb-3">Dairy</h2>
+                    <p class="text-center mt-3 mb-3 h2 fw-lighter">Dairy</p>
                     <p class="text-center"><Link to={"/shop"} onClick={scrollToTop} class="btn btn-success">Go Shop</Link ></p>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { addToCart } from '../../redux/slice/publicSlice'
 import { toast } from 'react-toastify'
 
@@ -10,18 +10,11 @@ const ShopSingle = () => {
     const btnColor = "#FB641B"
     const cartbtnColor = "#FF9F00"
     const location = useLocation()
-
+    const navigate = useNavigate();
 
     const handleAddToCart = (item) => {
-        // console.log(item);
-        if (login) {
-            dispatch(addToCart(item))
-            // toast.success("Added To Cart", { autoClose: 300 })
-        } else {
-            dispatch(addToCart(item))
-            // toast.success("Added To Cart", { autoClose: 300 })
-        }
-
+        dispatch(addToCart(item))
+        navigate("/cart")
     }
 
     const handleOutOfStock = (item) => {
@@ -30,11 +23,11 @@ const ShopSingle = () => {
 
     return <>
 
-        <div className='container py-5'>
+        <div className='container py-3'>
             <div className="row">
                 <div className="col-md-4">
                     <div className="card rounded-0">
-                        <div className="card-body d-flex justify-content-center align-items-center m-3">
+                        <div className="card-body d-flex justify-content-center align-items-center m-0">
                             <img className=' img-fluid text-center' src={`${location.state.item.img}`} alt="" />
                         </div>
                     </div>
@@ -63,12 +56,12 @@ const ShopSingle = () => {
                                     location.state.item.count > 0
                                         ? <>
                                             <button type="button" className="btn text-light fw-bold me-2 w-100" onClick={e => handleAddToCart(location.state.item)} style={{ background: cartbtnColor }}><i className="bi bi-cart-plus mx-1"></i> Add To Cart</button>
+                                            {/* <button type="button" className="btn text-light fw-bold w-50" style={{ background: btnColor }}><i className="bi bi-bag-heart-fill mx-2"></i>Go to Cart</button> */}
                                         </>
                                         : <>
                                             <button type="button" className="btn text-light fw-bold me-2 w-100" onClick={e => handleOutOfStock()} style={{ background: btnColor }}><i class="bi bi-bag-x-fill"></i> Out Of Stock</button>
                                         </>
                                 }
-                                {/* <button type="button" className="btn text-light fw-bold w-50" style={{ background: btnColor }}><i className="bi bi-bag-heart-fill mx-2"></i>Buy  Now</button> */}
                             </div>
                         </div>
                     </div>
