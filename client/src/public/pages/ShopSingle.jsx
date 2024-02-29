@@ -35,11 +35,11 @@ const ShopSingle = () => {
                 <div className="col-md-8 px-2">
                     <div className="card rounded-0">
                         <div className="card-body">
-                            <h5>{`${location.state.item.title}`}</h5>
-                            <p className='text-success fw-medium'>Special price</p>
+                            <h5 className=' fw-medium'>{`${location.state.item.title}`}</h5>
+                            <p className='text-success fw-light'>Special price</p>
                             <h3 className='mx-2'><span className='text-danger'>₹</span> {`${location.state.item.price}`}</h3>
                             <p>Category : {`${location.state.item.category}`}</p>
-                            <p>Brand : Zen</p>
+                            {/* <p>Brand : Zen</p> */}
                             <p className='fw-medium'>Description:</p>
                             <p className='mx-3'>
                                 {location.state.item.description}

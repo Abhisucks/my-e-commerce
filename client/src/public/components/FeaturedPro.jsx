@@ -53,7 +53,8 @@ const FeaturedPro = () => {
                                     </ul>
                                     <p className="h2 text-decoration-none text-dark">{product.title}</p>
                                     <p className="card-text">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga perferendi
+                                        {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga perferendi */}
+                                        {product.description}
                                     </p>
                                     <p className="text-muted">See More</p>
                                 </div>
