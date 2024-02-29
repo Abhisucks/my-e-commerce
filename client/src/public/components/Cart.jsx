@@ -44,7 +44,8 @@ const Cart = () => {
                                                     alt="" />
                                             </div>
                                             <div class="col-lg-3 mt-3 col-6 position-relative">
-                                                <h5>{item.title}</h5>
+                                                <h5 className='fw-light d-none d-sm-block'>{item.title}</h5>
+                                                <h5 className='fw-light fs-6 d-sm-none'>{item.title}</h5>
                                                 <p>₹{item.price}</p>
 
                                                 <span class="ps-lg-5 position-absolute top-0 end-0 pe-4 d-lg-none"><i onClick={() => dispatch(deleteCartItem(i))} class="bi bi-x-lg"></i></span>
