@@ -39,16 +39,16 @@ const ShopSingle = () => {
                             <p className='text-success fw-medium'>Special price</p>
                             <h3 className='mx-2'><span className='text-danger'>₹</span> {`${location.state.item.price}`}</h3>
                             <p>Category : {`${location.state.item.category}`}</p>
-                            <p>Brand : Lorem</p>
+                            <p>Brand : Zen</p>
                             <p className='fw-medium'>Description:</p>
                             <p className='mx-3'>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, saepe aliquid odio doloremque, perspiciatis illum, voluptatibus iure expedita omnis temporibus et minus similique id beatae odit? Quo doloribus vero unde!
+                                {location.state.item.description}
                             </p>
                             <p className='fw-medium'>Specification:</p>
                             <p className='mx-3'>
                                 <ul>
-                                    <li>Lorem ipsum</li>
-                                    <li>Sit amet </li>
+                                    <li>100% Oraganic</li>
+                                    <li>Natural Product </li>
                                 </ul>
                             </p>
                             <div className='d-flex'>

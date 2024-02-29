@@ -12,6 +12,7 @@ const AddProduct = () => {
         category: "",
         img: "",
         title: "",
+        description: "",
         price: 0,
         qty: 1,
         count: 50
@@ -22,6 +23,7 @@ const AddProduct = () => {
         category: "",
         img: "",
         title: "",
+        description: "",
         price: 0,
         qty: 1,
         count: 200
@@ -64,6 +66,7 @@ const AddProduct = () => {
         dispatch(getAllProduct())
     }, [])
 
+    console.log(allProducts);
     const handleDelete = (proId) => {
         dispatch(deleteProduct(proId))
     }
@@ -74,6 +77,7 @@ const AddProduct = () => {
                     <th scope="col">#</th>
                     <th scope="col">Image</th>
                     <th scope="col">Title</th>
+                    <th scope="col">description</th>
                     <th scope="col">Category</th>
                     <th scope="col">Price</th>
                     <th scope="col">Stock</th>
@@ -90,6 +94,7 @@ const AddProduct = () => {
                             <img src={item.img} alt="" className='img-fluid' width={100} />
                         </td>
                         <td>{item.title}</td>
+                        <td>{item.description}</td>
                         <td>{item.category}</td>
                         <td>{item.price}</td>
                         <td className={item.count <= 20 ? 'text-danger' : ''}>{item.count}</td>
@@ -195,6 +200,12 @@ const AddProduct = () => {
                                 onChange={e => setProduct({ ...product, title: e.target.value })}
                                 type="text" className='form-control mt-1' placeholder='add title' />
                         </div>
+                        <div className='mt-2'>
+                            <label htmlFor="">Description</label>
+                            <input value={product.description}
+                                onChange={e => setProduct({ ...product, description: e.target.value })}
+                                type="text" className='form-control mt-1' placeholder='add description' />
+                        </div>
 
                         <div className='mt-2'>
                             <label htmlFor="">Price</label>
@@ -215,7 +226,7 @@ const AddProduct = () => {
                                 type="text" className='form-control mt-1' />
                         </div>
 
-                        <button onClick={handleAddProduct} type="button" class="btn btn-primary w-100 mt-4">Save</button>
+                        <button onClick={handleAddProduct} data-bs-dismiss="modal" type="button" class="btn btn-primary w-100 mt-4">Save</button>
 
                     </div>
 
@@ -276,6 +287,13 @@ const AddProduct = () => {
                             <input value={selectedPro.title}
                                 onChange={e => setselectedPro({ ...selectedPro, title: e.target.value })}
                                 type="text" className='form-control mt-1' placeholder='add title' />
+                        </div>
+
+                        <div className='mt-2'>
+                            <label htmlFor="">Description</label>
+                            <input value={selectedPro.description}
+                                onChange={e => setselectedPro({ ...selectedPro, description: e.target.value })}
+                                type="text" className='form-control mt-1' placeholder='add description' />
                         </div>
 
                         <div className='mt-2'>

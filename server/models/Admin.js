@@ -13,6 +13,10 @@ const adminSchema = mongoose.Schema({
         type: String,
         require: [true, "title is required"]
     },
+    description: {
+        type: String,
+        require: [true, "description is required"]
+    },
     price: {
         type: Number,
         require: [true, "Price is required"]

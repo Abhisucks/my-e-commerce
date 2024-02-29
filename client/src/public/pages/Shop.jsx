@@ -28,15 +28,20 @@ const Shop = () => {
 
     const filterByPrice = (item) => {
         switch (priceRange) {
-            case "500":
-                return item.price <= 500;
-            case "1000":
-                return item.price <= 1000;
-            case "2000":
-                return item.price >= 2000;
+            case "50":
+                return item.price <= 50;
+            case "100":
+                return item.price <= 100;
+            case "150":
+                return item.price >= 150;
             default:
                 return true; // "all prices" or any other case
         }
+    };
+
+    const setCurrentPageWithScroll = (newPage) => {
+        setCurrentPage(newPage);
+        scrollToTop();
     };
 
     const result = allProducts && allProducts.filter(
@@ -56,9 +61,14 @@ const Shop = () => {
         });
     };
 
-    const setCurrentPageWithScroll = (newPage) => {
-        setCurrentPage(newPage);
-        scrollToTop();
+    const setProductCateFunction = (value) => {
+        setProductCate(value)
+        setCurrentPage(1);
+    };
+
+    const setPriceRangeFuction = (range) => {
+        setPriceRange(range)
+        setCurrentPage(1);
     };
 
     if (productLoading) {
@@ -80,7 +90,7 @@ const Shop = () => {
                 <div className='w-auto m-3'>
                     <label htmlFor="" >Categerogy</label>
                     <select value={productcate}
-                        className="form-select  mt-2 mb-3" onChange={e => setProductCate(e.target.value)}>
+                        className="form-select  mt-2 mb-3" onChange={e => setProductCateFunction(e.target.value)}>
                         <option value="all products">All Products</option>
                         <option value="fruits">Fruits</option>
                         <option value="vegitable">Vegitable</option>
@@ -92,11 +102,11 @@ const Shop = () => {
                 <div className='w-auto m-3'>
                     <label htmlFor="" >Price Range</label>
                     <select value={priceRange}
-                        className="form-select  mt-2 mb-3" onChange={e => setPriceRange(e.target.value)}>
+                        className="form-select  mt-2 mb-3" onChange={e => setPriceRangeFuction(e.target.value)}>
                         <option value="all prices">All Prices</option>
-                        <option value="500">Under ₹500</option>
-                        <option value="1000">Under ₹1000</option>
-                        <option value="2000">Over ₹2000</option>
+                        <option value="50">Under ₹50</option>
+                        <option value="100">Under ₹100</option>
+                        <option value="150">Over ₹150</option>
 
                     </select>
                 </div>
