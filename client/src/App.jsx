@@ -16,7 +16,6 @@ import AddProduct from './admin/pages/AddProduct'
 import ShopSingle from './public/pages/ShopSingle'
 import Cart from './public/components/Cart'
 import PaymentSuccess from './public/pages/PaymentSuccess'
-import Justforfun from './public/components/Justforfun'
 import OrderPlaced from './public/components/orderPlaced'
 import MyOrders from './public/components/MyOrders'
 import Users from './admin/pages/Users'
@@ -37,7 +36,6 @@ const App = () => {
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
           <Route path='cart' element={<Cart />} />
-          {/* <Route path='cart' element={<Justforfun />} /> */}
           <Route path='paymentsuccess' element={<PaymentSuccess />} />
           <Route path='orderplaced' element={<OrderPlaced />} />
           <Route path='myorders' element={<MyOrders />} />
@@ -51,8 +49,6 @@ const App = () => {
           <Route path='add-pro' element={<AddProduct />} />
           <Route path='messages' element={<Messages />} />
         </Route>
-
-        {/* <Route path="*" element={<PageNotFound />} /> */}
 
       </Routes>
       <ToastContainer />

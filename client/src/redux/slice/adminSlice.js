@@ -3,9 +3,7 @@ import { addProduct, deleteProduct, editProduct, getAllProduct, updateProStock }
 
 const adminSlice = createSlice({
     name: "admin",
-    initialState: {
-        // login: JSON.parse(localStorage.getItem("loginInfoo"))
-    },
+    initialState: {},
     reducers: {
         invalidate: (state, { payload }) => {
             payload.forEach(item => {

@@ -18,7 +18,6 @@ const Login = () => {
         }
         if (login) {
             toast.success("Login Successfully")
-            // dispatch(invalidate(["login"]))
             navigate("/shop")
         }
     }, [error, login])
@@ -33,7 +32,6 @@ const Login = () => {
             password: yup.string().required().min(4).max(16),
         }),
         onSubmit: (value, restForm) => {
-            // console.log(value);
             dispatch(loginUser(value))
         }
     })

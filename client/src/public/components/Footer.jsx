@@ -89,16 +89,7 @@ const Footer = () => {
 
                         </ul>
                     </div>
-                    {/* <div class="col-auto">
-                        <ul class="list-inline text-left footer-icons">
-                            <li class="list-inline-item border border-light rounded-circle text-center">
-                                <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                            </li>
-                            <li class="list-inline-item border border-light rounded-circle text-center">
-                                <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-github fa-lg fa-fw"></i></a>
-                            </li>
-                        </ul>
-                    </div> */}
+
                 </div>
             </div>
 

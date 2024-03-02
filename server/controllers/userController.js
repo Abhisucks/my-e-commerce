@@ -78,18 +78,25 @@ exports.loginUser = asyncHandler(async (req, res) => {
         })
     }
 
-    const token = jwt.sign({ userId: found._id }, process.env.JWT_KEY)
+    const token = jwt.sign({ userId: found._id, role: found.role }, process.env.JWT_KEY)
+
     res.cookie("jwt", token, {
-        maxAge: 1000 * 60 * 60 * 24,
-        httpOnly: true
-    })
+        // maxAge: 1000 * 60 * 60 * 24, // 24 hours
+        maxAge: 1000 * 60 * 60 * 24 * 365 * 10, // 10 years
+        httpOnly: true,
+        sameSite: "None",
+        secure: true,
+        // domain: ".onrender.com"
+    });
+
 
     res.json({
         message: "Login Success",
         result: {
             name: found.name,
             id: found._id,
-            role: found.role
+            role: found.role,
+            token: token
         }
     })
 })
@@ -127,8 +134,6 @@ exports.paymentVerification = async (req, res) => {
     try {
         const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
             req.body;
-
-        // console.log(razorpay_order_id, razorpay_payment_id, razorpay_signature);
 
         const body = razorpay_order_id + "|" + razorpay_payment_id;
 

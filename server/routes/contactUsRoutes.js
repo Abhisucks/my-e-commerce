@@ -1,12 +1,14 @@
-const { addMessage, getAllMessage, getOneMessage, destroyMessage, deleteMessage } = require("../controllers/contactUsController")
+const { addMessage, getAllMessage, getOneMessage, deleteMessage } = require("../controllers/contactUsController")
+const { isAuthenticated } = require("../middleware/auth")
+const { protected } = require("../middleware/protected")
 
 const router = require("express").Router()
 
 router
-    .get("/", getAllMessage)
-    .post("/add", addMessage)
-    .get("/:messageId", getOneMessage)
-    .delete("/destroy", destroyMessage)
-    .delete("/delete/:messageId", deleteMessage)
+    .get("/", protected, getAllMessage)
+    .post("/add", isAuthenticated, addMessage)
+    .get("/:messageId", protected, getOneMessage)
+    .delete("/delete/:messageId", protected, deleteMessage)
+// .delete("/destroy", protected, destroyMessage)
 
 module.exports = router    

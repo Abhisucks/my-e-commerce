@@ -7,10 +7,6 @@ const publicSlice = createSlice({
     name: "public",
     initialState: {
         login: JSON.parse(localStorage.getItem("loginInfoo")),
-        // cart: (
-        //     JSON.parse(localStorage.getItem("cart")) || []
-        // ).filter((item) => item.userId === (JSON.parse(localStorage.getItem("loginInfoo")).id)),
-
         cart: JSON.parse(localStorage.getItem("cart")) || [],
         total: JSON.parse(localStorage.getItem("total"))
 
@@ -21,32 +17,6 @@ const publicSlice = createSlice({
                 state[item] = false
             });
         },
-        // addToCart: (state, { payload }) => {
-        //     state.cart.push(payload)
-        //     state.total = state.cart.reduce((total, item) => total + (item.qty * item.price), 0)
-        //     localStorage.setItem("cart", JSON.stringify(state.cart))
-        //     localStorage.setItem("total", JSON.stringify(state.total));
-
-        // },
-        // addToCart: (state, { payload }) => {
-        //     // Check if the item already exists in the cart
-        //     const existingItemIndex = state.cart.findIndex(item => item._id === payload._id);
-
-        //     if (existingItemIndex !== -1) {
-        //         // Item already exists, update the quantity instead of adding a new item
-        //         state.cart[existingItemIndex].qty += payload.qty;
-        //     } else {
-        //         // Item doesn't exist, push it to the cart
-        //         state.cart.push(payload);
-        //     }
-
-        //     // Recalculate the total
-        //     state.total = state.cart.reduce((total, item) => total + (item.qty * item.price), 0);
-
-        //     // Update localStorage
-        //     localStorage.setItem("cart", JSON.stringify(state.cart));
-        //     localStorage.setItem("total", JSON.stringify(state.total));
-        // },
 
         addToCart: (state, { payload }) => {
             // Check if the item already exists in the cart
@@ -104,15 +74,6 @@ const publicSlice = createSlice({
             localStorage.setItem("cart", JSON.stringify(state.cart))
             localStorage.setItem("total", JSON.stringify(state.total));
         },
-
-
-        // // Action to increment the quantity of an item in the cart
-        // incrementCartItem: (state, { payload }) => {
-        //     state.cart[payload].qty += 1;
-        //     state.total = state.cart.reduce((total, item) => total + (item.qty * item.price), 0);
-        //     localStorage.setItem("cart", JSON.stringify(state.cart));
-        //     localStorage.setItem("total", JSON.stringify(state.total));
-        // },
 
         // Action to increment the quantity of an item in the cart
         incrementCartItem: (state, { payload }) => {

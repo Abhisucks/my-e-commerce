@@ -1,13 +1,14 @@
-const { addUserOrders, getUserOrders, destroyUserOders, getOneUserOrders, deleteOneOrder } = require("../controllers/ordersController")
-
+const { addUserOrders, getUserOrders, getOneUserOrders, deleteOneOrder } = require("../controllers/ordersController")
+const { isAuthenticated } = require("../middleware/auth")
+const { protected } = require("../middleware/protected")
 const router = require("express").Router()
 
 router
-    .get("/", getUserOrders)
-    .get("/yourorders/:userId", getOneUserOrders)
-    .post("/addorder", addUserOrders)
-    .delete("/remove/:orderId", deleteOneOrder)
-    .delete("/remove", destroyUserOders)
+    .get("/", protected, getUserOrders)
+    .get("/yourorders/:userId", isAuthenticated, getOneUserOrders)
+    .post("/addorder", isAuthenticated, addUserOrders)
+    .delete("/remove/:orderId", protected, deleteOneOrder)
+// .delete("/remove", protected, destroyUserOders)
 
 
 module.exports = router  

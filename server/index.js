@@ -2,11 +2,14 @@ const express = require("express")
 require("dotenv").config({ path: "./.env" })
 const mongoose = require("mongoose")
 const cors = require("cors")
+const cookieParser = require("cookie-parser");
+
 
 mongoose.connect(process.env.MONGO_URL)
 const app = express()
 const PORT = process.env.PORT
 
+app.use(cookieParser());
 app.use(cors({
     origin: "http://localhost:5173",
     credentials: true
