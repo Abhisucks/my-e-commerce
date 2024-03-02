@@ -1,6 +1,6 @@
 # E-Commerce Project
 
-Welcome to our feature-rich E-Commerce platform, built with the MERN (MongoDB, Express.js, React, Node.js) stack and styled using Bootstrap! This application offers a seamless experience for both administrators and users. Below are the key features and functionalities:
+Welcome to Eco our feature-rich E-Commerce platform, built with the MERN (MongoDB, Express.js, React, Node.js) stack and styled using Bootstrap! This application offers a seamless experience for both administrators and users. Below are the key features and functionalities:
 
 ## Live Demo
 Explore the live deployment of the application: [Live Demo](https://myecommerce-one.vercel.app/)
