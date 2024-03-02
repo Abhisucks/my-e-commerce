@@ -26,8 +26,14 @@ Welcome to our feature-rich E-Commerce platform, built with the MERN (MongoDB, E
 
 6. **Order History:**
    - View a record of previous orders.
+  
+7. **Pagination:**
+   - Paginate through the product list for a better user experience.
 
-7. **Contact Us:**
+8. **Product Filtering:**
+   - Users can filter products based on product category or price range for efficient navigation.
+
+9. **Contact Us:**
    - Users can send messages to the admin for inquiries or support.
 
 ### Admin Panel
@@ -54,15 +60,6 @@ Welcome to our feature-rich E-Commerce platform, built with the MERN (MongoDB, E
 
 6. **Featured Products:**
    - Admins can mark specific products as featured, displaying them prominently on the home page.
-
-7. **Pagination:**
-   - Paginate through the product list for a better user experience.
-
-8. **Product Filtering:**
-   - Users can filter products based on product category or price range for efficient navigation.
-
-9. **Bootstrap Styling:**
-   - The application is styled using Bootstrap, providing a responsive and visually appealing design.
 
 ## Libraries Used
 
