@@ -91,7 +91,7 @@ const Login = () => {
                                     Login
                                 </button>
                                 <p class="text-center mt-3">
-                                    Don't Have Account? <Link className=' text-dark' to={"/register"} href="#">Sigh up</Link>
+                                    Don't Have Account? <Link className=' text-dark' to={"/register"} href="#">sign up</Link>
                                 </p>
                             </div>
                         </div>
