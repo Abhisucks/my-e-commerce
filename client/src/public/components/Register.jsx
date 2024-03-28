@@ -4,22 +4,12 @@ import * as yup from 'yup'
 import { useDispatch, useSelector } from "react-redux"
 import { toast } from "react-toastify"
 import { invalidate } from '../../redux/slice/publicSlice'
-import { registerUser } from '../../redux/actions/publicActions'
-import { Link } from 'react-router-dom'
+import { loginUser, registerUser } from '../../redux/actions/publicActions'
+import { Link, useNavigate } from 'react-router-dom'
 const Register = () => {
     const dispatch = useDispatch()
     const { loading, error, userAdded } = useSelector(state => state.public)
-    useEffect(() => {
-        if (error) {
-            console.log("error");
-            toast.error(error)
-            dispatch(invalidate(["error"]))
-        }
-        if (userAdded) {
-            toast.success("User Added Successfully")
-            dispatch(invalidate(["userAdded"]))
-        }
-    }, [userAdded, error])
+    const navigate = useNavigate()
 
     const formik = useFormik({
         initialValues: ({
@@ -43,6 +33,20 @@ const Register = () => {
             resetForm()
         }
     })
+
+    useEffect(() => {
+        if (error) {
+            console.log("error");
+            toast.error(error)
+            dispatch(invalidate(["error"]))
+        }
+        if (userAdded) {
+            toast.success("SignUp Successfully")
+            dispatch(invalidate(["userAdded"]))
+            dispatch(loginUser({ email: formik.values.email, password: formik.values.password }))
+            navigate("/shop")
+        }
+    }, [userAdded, error])
 
     if (loading) return <div class="spinner-border text-primary"></div>
     return <>
